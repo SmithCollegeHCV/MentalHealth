@@ -1,1 +1,1 @@
-# MentalHealth
+# Computing for Mental Health Project
