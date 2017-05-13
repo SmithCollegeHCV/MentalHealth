@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="mentalHealth.css" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="topnav">
+  <a href="homePage.html"><i class="fa fa-home"></i>Home</a>
+  <a class="active" href="bubble2.html">Clinician Interface</a>
+  <a href="decisionTree.html">Decision Tree</a>
+  <a href="https://rautey.shinyapps.io/mental_health_interface/">Researcher Interface</a>
+
+</div>
+
+<h1>Clinician Interface</h1>
+
+<div id = "questionBox" class = "question">
+  Question
+</div>
+
+
+
+<div id = "diagnosesBox" class="boxed">
+Lists all the possible diagnoses and their definitions after user has filtered.
+
+</div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="d3.tip.js"></script>
+
+<script src="d3-context-menu.js"></script>
+<script>
+/**
+ *  Created by: Ji Won Chung, Ji Young Yun & Kelly Pien 
+ *  Version: 05/03/2017 
+ *  The d3 for the bubble chart in the clinician interface.  
+ *  ---------------------------------- CREDITS ------------------------------------
+ *  Copyright (c) 2013 Justin Palmer
+ *  ES6 / D3 v4 Adaption Copyright (c) 2016 Constantin Gavrilete
+ *  Removal of ES6 for D3 v4 Adaption Copyright (c) 2016 David Gotz
+ *  Contextmenu for rightclick: http://plnkr.co/edit/hAx36JQhb0RsvVn7TomS?p=preview
+ *  Tutorial for bubble chart referenced: https://www.youtube.com/watch?v=lPr60pexvEM 
+ *  ------------------------------------------------------------------------------- 
+ *  ------------------------------- SUGGESTIONS -----------------------------------
+ *  (1) Create a separate class for regular circles.  
+ *  (2) Deactivate the contextmenu once the bubble is gray. 
+ *  (3) Check for circle.notactive.active and circle.active.notactive cases when 
+ *      using selectAll() or select() methods. 
+ */
+
+//graphical settings
+var diameter = 5000; //max size of circle 
+var width = 690;
+var height = 500;
+var format = d3.format(",d");
+var total = 207;
+ 
+
+//creation of a bubble
+var bubble = d3.pack() 
+  .size([diameter, diameter])
+  .padding(1.5);
+
+
+//basic setting of the svg
+var svg = d3.select("body")
+  .append("svg")
+  .attr("width", width)
+  .attr("height", height) 
+ 
+ //create tip
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .html(function(d) {  
+    var question = "Does the person have..." + d.question + "? Right click to answer 'Yes' or 'No'."
+    d3.select("#questionBox").text(question)
+    return d.category + ": " + d.definition;}) //text in the tip
+
+svg.call(tip)
+
+//chagne the X coordinates by region
+var forceX = d3.forceX(function(d){
+  return 5; 
+}).strength(0.01)
+
+//change the Y coordinates by region
+var forceY = d3.forceY(function(d){
+  return 5; 
+}).strength(0.01)
+
+var forceCollide = d3.forceCollide(function(d){ //DETERMINES THE SPACING OF THE CIRCLES 
+       return 40;
+}).strength(0.2)
+
+//collection of forces that determine how/where our circles want to go and interact
+var simulation = d3.forceSimulation() //takes every circle and applies forces to them to get them to a certain place 
+  .force("x", d3.forceX(width/4).strength(0.6)) //pushes by x axis 
+  .force("y", d3.forceY(height/5).strength(0.6))//pushes to the y axis
+  .force("collide", forceCollide) //radius of area we want to avoid as long as it matches the radius of the circle and the parameter of force collide it wont ove"r"lap 
+
+
+d3.queue()
+  .defer(d3.csv, "data.csv") //THE DATA WE ARE IMPORTING 
+  .await(ready)
+
+function ready(error, datapoints){
+  var filteredCodes = datapoints //filteredCodes is the set of filtered diagnoses -- datapoints is the intial set of datapoints
+  var question = "Question will be loaded here..." 
+  var selectedCategories = [] //the set of categories that are selected by the user -- it is an array of arrays --- each element is structured as [category, y/n]
+
+  //hardcoded data structure of the various groups 
+  var groupData = [
+    {"category":"adl", "definition": "need care/support to carry out daily tasks such as grocery shopping, having a job, raising a family, etc.", "question": "Ability to provide basic, age-appropriate self-care (bathing, eating, toileting, etc.)"},
+    {"category": "attachment", "definition" : "person-specific, making meaningful relationships, having problems getting close to people, opening up to people, too much or too little trust in strangers, feeling of abandonment", "question": "Ability to form meaningful relationships with others"},
+    {"category":"attention", "definition": "related impulse control, information cannot be accessed readily, focus is not where it is supposed to be, consistent irresponsibility, not bringing something because you didn't know you had to, disorganized  getting distracted BY something else, having lots of things going on at once, fidgeting", "question": "Ability to apply sustained attention or effort"},
+    {"category":"avoidance", "definition": "avoidance -- not yet defined", "question": "avoidance -- question not yet defined"},
+    {"category":"behavior", "definition": "related impulse control, information cannot be accessed readily, focus is not where it is supposed to be, consistent irresponsibility, not bringing something because you didn't know you had to, disorganized  getting distracted BY something else, having lots of things going on at once, fidgeting", "question": "Deviation from expected adaptive behavior"},
+    {"category":"cogdev", "definition": "cognitive milestones, learning, IQ, academic skills, reading, writing, speech but not communication, includes verbal, grammar, vocabulary, pronunciation", "question" : "Development of cognitive skills and abilities (intelligence, learning, language acquisition)"},
+    {"category":"communication", "definition": "not person specific, generalized, conveyance of ideas, reciprocity", "question": "Ability to engage in reciprocal communication; effectively share and understand ideas/information"},
+    {"category":"prereq", "definition": "of medication, of trauma, of neglect, of experience, medical history, family hisotry, requisite, requirement", "question": "prereq -- question not yet defined" },
+    {"category":"concentration", "definition": "cannot focus because you are unable to, not because attention is pulled to something else, increase in goal-directed activity, too much attention to productivity/work/job", "question": "concentration -- question not yet defined" },
+    {"category":"delusion", "definition": "believing in a different reality ", "question": "An idiosyncratic belief or thought process that is firmly maintained"},
+    {"category":"detachment", "definition": "derealization, depersonalization, feeling like things are like a dream", "question": "A feeling of disconnection from one's body or surroundings"},
+    {"category":"duration", "definition": "must have happened for a certain period of time", "question": "duration -- question not yet defined" },
+    {"category":"feeling", "definition": "emotion, state of being, mood, fear, nervousness, worry, feeling of~, sexually aroused by ~ (exclude feeling of abandonment)", "question": "Disturbance of emotional state or response"},
+    {"category":"hallucination", "definition": "sensory perception of something that does not exist ", "question": 'Perception of sensory stimuli in the absence of external stimulus ("seeing things","hearing voices", etc.)'},
+    {"category":"iho", "definition": "damaging property, hitting, burning, etc.", "question": "Damaging property, hitting, burning, etc."},
+    {"category":"impulse", "definition": "doing stuff b/c of incapability of making judgments", "question": "Inability to calculate consequences before engaging in an action or behavior"},
+    {"category":"motor", "definition": "movement, too much resistance, posture, grossly disorganized/catatonic behavior, unconscious/reflex stuff, psychomotor agitation ", "question": "Expected use and movement of the body"},
+    {"category":"onset", "definition": "age of onset", "question": "onset -- not yet defined" },
+    {"category":"orientation", "definition": "awareness of time, place, who you are", "question": "Awareness of time, surroundings, and personal identity"},
+    {"category":"rigidity", "definition": "has to be this way, insistence on sameness, inflexible adherence to routines", "question": "Insistence on sameness; inflexible adherence to routines; engaging in ritualistic behavior"},
+    {"category":"risk", "definition":"potentially harming self", "question": "Engaging in behaviors despite the risk of harm to self or others"},
+    {"category":"selfconcept", "definition": "grandiose sense of self (self-centered), low self-esteem, perception of self, identity of self", "question": "Awareness and beliefs about oneself, including inherent value, personal appearance, and abilities"},
+    {"category":"selfharm", "definition": "intentionally harming self", "question": "Intentionally causing harm to onself, including suicidal behaviors"},
+    {"category":"sensory" , "definition": "trying to seek certain senses, defensive to certain senses, sensitive to certiain senses of the body", "question": "The ability to tolerate, process, and integrate sensory stimuli"},
+    {"category":"sleep", "definition": "anything related to sleep, waking up, tired, insomnia, fatigue, lethargy", "question": "Sleep and waking"},
+    {"category":"sexual" , "definition": "sexual -- not yet defined", "question": "sexual -- not yet defined"},
+    {"category":"somatic", "definition": "relating to the body, appetite (feeling hungry), feelings of weekness, tremors, diziness, nausea, basically anything you would go to the doctors for", "question": "The presentation of physical symptoms"},
+    {"category":"substance" , "definition":"anything related to substances, drugs such as alcohol, caffeine, etc. ", "question": "Drugs, alcohol, caffeine, tobacco, etc." },
+    {"category":"thought", "definition":"flashbacks, intrusive thoughts, delusions, paranoia, racing thoughts, blank, hoarding", "question": "Thought process or content"}
+  ]
+
+    //this is what is used for the conntextmenu, the selections that appear once the user right clicks 
+    var menu = [
+        { title: 'Yes',
+          action: function(elm, d, i) {
+            selectCategory(d, 1)}//if the user selects Yes pass in a 0 and call selectCategory
+        },
+        { title: 'No',
+          action: function(elm, d, i) {
+            selectCategory(d, 0)} //if the user selects No pass in a 0 and call selectCategory
+        }
+    ]
+
+
+    //creation of nodes 
+    var nodes = svg.selectAll('g')
+      .data(groupData).enter()
+      .append("g")
+      
+   
+    //creation of bubbles  
+    var circles = nodes.append("circle")
+      .attr("category", function(d){ return d.category;}) //sets the attributes of categories
+      .attr("r", function(d,i){ return radius(i); }) //sets the initial radius 
+      .attr("fill", "#43BFC7") //sets the color of the circle 
+      .attr("fill-opacity", 0.4)//sets the opacity of the circle 
+      .on("contextmenu", d3.contextMenu(menu)) // right click for contextmenu 
+      .on('mouseover', tip.show) //tip if hovered over circle 
+      .on('mouseout', tip.hide ) // no tip if hover out
+      .on("dblclick", function(d){deselect(d)}) //link deselection with doublelick
+   
+   
+      
+   //adds text labels to bubbles 
+  var text =nodes.append("text")
+    .text(function(d){return d.category})
+    .style("fill", "black")  //selects text color as black
+
+    //runs the simulation/force collision -- what makes the bubbles move
+    simulation.nodes(groupData) //set coordinates nodes
+        .on('tick', ticked)
+
+
+  //what is written in the list of potential diagnoses text box
+  d3.select('#diagnosesButton').on('click', function(){ //if diagnosesbutton is clicked
+    var description = []
+
+      for (i = 0; i < filteredCodes.length; i++){
+
+        var codeChapter = filteredCodes[i].code.split("_")
+          var diagnosesDescription = codeChapter[0] + " (Chapter " + codeChapter[1] + ")" + "<br>" +filteredCodes[i].description + "<br>" + "<br>";
+            description.push(diagnosesDescription)
+
+          
+      }
+    d3.select('#diagnosesBox').html(description.join("")); //prints out diagnoses
+
+  })
+
+
+  //function that is called to deselect a category /response 
+  function deselect(d){
+    var count = 0;     
+    
+    //count if there are pre-existing category selections 
+    for(i=0; i <selectedCategories.length; i++){
+      if(d.category == selectedCategories[i][0]){
+          count = count+1;
+      }
+    }
+ 
+    if(count == 2){ //if there are already 2 selections of the same categories  
+      for(i=0; i <selectedCategories.length; i++){
+        if(d.category == selectedCategories[i][0]){
+            selectedCategories.splice(i, 1); //remove the very first selected category
+            break;
+        }
+      }
+    }else{ 
+      for(i=0; i <selectedCategories.length; i++){
+        if(d.category == selectedCategories[i][0]){
+            selectedCategories.splice(i, 1);
+            break;
+        }
+      }
+      d3.select("circle[category="+d.category+"]").classed("active", false) //set the user-specified bubble as not active, hence blue and not red 
+    }
+     
+
+    if(selectedCategories.length > 0 ){ //if there are selections 
+      filteredCodes = datapoints;
+      for(i =0 ; i<selectedCategories.length; i++){  
+          filteredCodes = filteredCodes.filter(function(obj){
+            return (obj[selectedCategories[i][0]] == selectedCategories[i][1]);
+          })
+      }
+
+
+      //changeRadius 
+      d3.selectAll("circle:not(.active)").attr("r", function(d){ //of the circles that do not have an "active" class
+         return changeRadius(d); //change the radius 
+      }) 
+
+     d3.selectAll("circle:not(.active)").classed("notactive", function(d){ //of the circles that do not have an "active" class
+          if (changeRadius(d) == 0){ //if the radius is 0 
+            return true; //set the circle as not active 
+          }else{
+            return false;
+          }
+      }) 
+
+    //dealing with cases where class is :circle.notactive.active -- would be solved if a third class is created to indicate regular circles 
+     for (i = 0 ; i< selectedCategories.length; i++){
+        if(d.category == selectedCategories[i][0]){
+          d3.select("circle[category="+d.category+"]").classed("notactive", false) //first make notactive circle not active 
+          d3.select("circle[category="+d.category+"]").classed("active", true).attr("r", Math.sqrt(10000*1/Math.PI))//then make it active
+        }
+     }
+
+
+       //print all selections
+      var printCodeResponse = []
+      for(i=0; i<selectedCategories.length; i++){
+        var code = selectedCategories[i][0]; 
+        var responseString; 
+          if(selectedCategories[i][1] == 0){
+            responseString = 'No'
+          }else{
+            responseString = 'Yes'
+          }
+
+        var codeResponse = code + "-" + responseString
+        printCodeResponse.push(codeResponse)
+
+        d3.select('#choicesBox').html(printCodeResponse.join(", "));
+
+      }//end printforLoop
+
+      simulation.alpha(0.5).restart(); //reinstiage the simulation
+
+    }else{ //if there are no selections 
+      console.log("none selected....")
+      filteredCodes = datapoints; 
+      d3.selectAll("circle").classed("notactive", false) //make all circles not active
+      d3.selectAll("circle").classed("active", false) //make all circles not active 
+      d3.selectAll("circle").attr("r", function(d){ 
+        return radiusReset(d); //reset all the radius 
+      })
+      d3.selectAll("circle").classed("notactive", function(d){ //set the classes for notactive, gray circles 
+        var radiusSet = radiusReset(d);
+        if(radiusSet == 0){ //if the radius is 0 
+          return true;  //make the circles have the class not active 
+        }else{
+          return false;
+        }
+      })
+      d3.select('#choicesBox').html("No choices have been selected."); //print in the choicesBox 
+    }
+    simulation.alpha(0.5).restart(); //resimulate the data
+  }
+
+
+  //function that deals with bubble chart once user selects a category
+  function selectCategory(p, response){ //p is the data point the user selected, response is 0/1 (n/y)
+
+    d3.select("circle[category="+p.category+"]").classed("active", "true") //select the circle with that category and make it true 
+    
+    var categoryResponse =[];
+    categoryResponse.push(p.category);
+    categoryResponse.push(response);
+    selectedCategories.push(categoryResponse)
+    var oldfilteredCodes = filteredCodes 
+
+    //filters the code
+    filteredCodes = filteredCodes.filter(function(obj){ 
+      return obj[p.category] == response; //if the datap with that category has 0/1 == response return that obj/diagnoses into filteredCodes
+    })
+
+    if(filteredCodes.length == 0){ //if there are no filtered codes 
+      //make all circles active --> false make all circles not active --> false to account for circle.active.notactive class -- but will be resolved with a third class for regular circles 
+      d3.selectAll("circle").classed("active", false) 
+      d3.selectAll("circle").classed("notactive", false)
+
+      d3.selectAll("circle").classed("notactive", true) //make all the circles gray
+    }else{
+       //category is completely 0 then fitler 0 
+       d3.selectAll("circle:not(.active)").classed("notactive", function(d){
+          if (changeRadius(d) == 0){
+            return true;
+          }
+        })
+
+       //change the radius of the data 
+       d3.selectAll("circle").attr("r", function(d){
+        return changeRadius(d);
+       })
+
+       d3.selectAll("circle.active").attr("r", Math.sqrt(10000*1/Math.PI))
+
+       var selectedCircles = d3.selectAll("circle.active")
+       var nonactiveCircles = d3.selectAll("circle.notactive") 
+       simulation.alpha(0.5).restart(); //resimulate the data 
+      }
+
+      // printing stuff in the choicesBox 
+     if(selectedCategories.length >0){
+        var printCodeResponse = []
+
+        //basic parsing of string & conversion of binary integers to Yes/No strings
+        for(i=0; i<selectedCategories.length; i++){
+          var code = selectedCategories[i][0]; 
+          var responseString; 
+          if(selectedCategories[i][1] == 0){
+              responseString = 'No'
+          }else{
+              responseString = 'Yes'
+          }
+
+          var codeResponse = code + "-" + responseString
+          printCodeResponse.push(codeResponse)
+
+           d3.select('#choicesBox').html(printCodeResponse.join(", "));
+
+        }//end print loop 
+     } else if( selectedCategories.length == 0){
+        d3.select('#choicesBox').html(""); //print nothing
+     } else{
+        d3.select('#choicesBox').html(""); //print nothing 
+     }
+
+   }
+ 
+ //function that returns a radius depending on the filteredCodes 
+  function changeRadius(d){
+    var category = d.category; 
+     var sum = 0; 
+
+    if(filteredCodes.length > 0){
+      console.log("case1...........")
+      for ( i = 0; i < filteredCodes.length; i++){
+          sum += parseInt(filteredCodes[i][category]);
+      }
+
+      var frequency = sum/filteredCodes.length; 
+      var radius = Math.sqrt(10000*frequency/Math.PI);
+
+      return radius; 
+   }else if(filteredCodes.length == 0){
+      return 0; 
+   } else{
+    console.log("??????????????")
+    return 1; 
+  }
+  }
+
+   //function that resets the radius during deselect 
+   function radiusReset(d){
+      var category = d.category
+      var sum = 0; 
+       for ( i = 0; i < datapoints.length; i++){ //iterate through the original dataset 
+          sum += parseInt(datapoints[i][category]);
+        }
+      var frequency = sum/datapoints.length; 
+      var radius = Math.sqrt(10000*frequency/Math.PI);
+      return radius; 
+   }
+   
+   //intial function that sets the radius 
+  function radius(i){
+    var category = groupData[i].category;
+
+    var sum = 0; 
+    for ( i = 0; i < filteredCodes.length; i++){
+      sum += parseInt(filteredCodes[i][category]);
+    }
+    var frequency = sum/total; 
+    var radius = Math.sqrt(10000*frequency/Math.PI);
+    if(radius == 0){
+      return 5;
+    }else{
+      return radius;
+    }
+
+  }
+
+  //changes the orientation & positioning of the circles
+    function ticked(){
+      circles //set the coordinates of the circles 
+          .attr("cx", function(d){ return d.x + 200; }) 
+          .attr("cy", function(d){ return d.y + height/4; })
+        
+      text //set the coordinates of the text or the country name in this case
+          .attr("x", function(d){ return d.x+200; }) 
+          .attr("y", function(d){ return d.y +height/4; })
+    }
+}
+
+</script>
+<div class = "key">
+
+<div class = "key_1">
+</div>
+<div class = "description_1">
+unselected
+</div>
+<div class = "key_2">
+</div>
+<div class = "description_2">
+selected
+</div>
+<div class = "key_3">
+</div>
+<div class = "description_3">
+inactive
+</div>
+</div>
+<div class = "boxInAbox">
+<button id = "diagnosesButton" >What are the potential diagnoses so far?</button>
+</div>
+
+<div id = "choicesBox" class="anotherQuestion">
+  Lists all the user choices. 
+</div>
+
+
+</body>
+</html>
+
+
