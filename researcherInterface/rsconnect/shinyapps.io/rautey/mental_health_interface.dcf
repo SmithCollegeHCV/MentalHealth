@@ -1,0 +1,11 @@
+name: mental_health_interface
+title:
+account: rautey
+server: shinyapps.io
+appId: 175588
+bundleId: 814825
+url: https://rautey.shinyapps.io/mental_health_interface/
+when: 1493906617.54747
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: chapfreq.csv
