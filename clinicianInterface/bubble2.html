@@ -75,7 +75,7 @@ var svg = d3.select("body")
 var tip = d3.tip()
   .attr('class', 'd3-tip')
   .html(function(d) {  
-    var question = "Does the person have..." + d.question + "? Right click to answer 'Yes' or 'No'."
+    var question = d.question + "? Right click to answer 'Yes' or 'No'."
     d3.select("#questionBox").text(question)
     return d.category + ": " + d.definition;}) //text in the tip
 
@@ -113,35 +113,35 @@ function ready(error, datapoints){
 
   //hardcoded data structure of the various groups 
   var groupData = [
-    {"category":"adl", "definition": "need care/support to carry out daily tasks such as grocery shopping, having a job, raising a family, etc.", "question": "Does the patient have difficulty with the ability to provide basic, age-appropriate self-care (bathing, eating, toileting, etc.)"},
-    {"category": "attachment", "definition" : "person-specific, making meaningful relationships, having problems getting close to people, opening up to people, too much or too little trust in strangers, feeling of abandonment", "question": "Does the patient have difficulty with the ability to form meaningful relationships with others"},
-    {"category":"attention", "definition": "related impulse control, information cannot be accessed readily, focus is not where it is supposed to be, consistent irresponsibility, not bringing something because you didn't know you had to, disorganized  getting distracted by something else, having lots of things going on at once, fidgeting", "question": "Does the patient have difficulty with the ability to apply sustained attention or effort"},
-    {"category":"avoidance", "definition": "avoidance -- not yet defined", "question": "avoidance -- question not yet defined"},
-    {"category":"behavior", "definition": "related impulse control, information cannot be accessed readily, focus is not where it is supposed to be, consistent irresponsibility, not bringing something because you didn't know you had to, disorganized  getting distracted by something else, having lots of things going on at once, fidgeting", "question": "Does the patient have deviation from expected adaptive behavior"},
-    {"category":"cogdev", "definition": "cognitive milestones, learning, IQ, academic skills, reading, writing, speech but not communication, includes verbal, grammar, vocabulary, pronunciation", "question" : "Does the patient have difficulty with development of cognitive skills and abilities (intelligence, learning, language acquisition)"},
-    {"category":"communication", "definition": "not person specific, generalized, conveyance of ideas, reciprocity", "question": "Does the patient have difficulty with the ability to engage in reciprocal communication; effectively share and understand ideas/information"},
-    {"category":"prereq", "definition": "of medication, of trauma, of neglect, of experience, medical history, family history, requisite, requirement", "question": "Does the patient ... " },
-    {"category":"concentration", "definition": "cannot focus because you are unable to, not because attention is pulled to something else, increase in goal-directed activity, too much attention to productivity/work/job", "question": "Does the patient ... question not yet defined" },
-    {"category":"delusion", "definition": "believing in a different reality ", "question": "Does the patient have difficulty with having an idiosyncratic belief or thought process that is firmly maintained"},
-    {"category":"detachment", "definition": "derealization, depersonalization, feeling like things are like a dream", "question": "Does the patient have a feeling of disconnection from one's body or surroundings"},
-    {"category":"duration", "definition": "must have happened for a certain period of time", "question": "Does the patient ... question not yet defined" },
-    {"category":"feeling", "definition": "emotion, state of being, mood, fear, nervousness, worry, feeling of~, sexually aroused by ~ (exclude feeling of abandonment)", "question": "Does the patient have disturbance of emotional state or response"},
-    {"category":"hallucination", "definition": "sensory perception of something that does not exist ", "question": 'Does the patient have perception of sensory stimuli in the absence of external stimulus ("seeing things","hearing voices", etc.)'},
-    {"category":"iho", "definition": "damaging property, hitting, burning, etc.", "question": "Has the patient intended to harm others (damaging property, hit, burning, etc.)"},
-    {"category":"impulse", "definition": "doing stuff b/c of incapability of making judgments", "question": "Does the patient have the inability to calculate consequences before engaging in an action or behavior"},
-    {"category":"motor", "definition": "movement, too much resistance, posture, grossly disorganized/catatonic behavior, unconscious/reflex stuff, psychomotor agitation ", "question": "Does the patient have difficulty with expected use and movement of the body"},
-    {"category":"onset", "definition": "age of onset", "question": "Does the patient ... not yet defined" },
-    {"category":"orientation", "definition": "awareness of time, place, who you are", "question": "Does the patient have difficulty with awareness of time, surroundings, and personal identity"},
-    {"category":"rigidity", "definition": "has to be this way, insistence on sameness, inflexible adherence to routines", "question": "Does the patient have insistence on sameness; inflexible adherence to routines; engaging in ritualistic behavior"},
-    {"category":"risk", "definition":"potentially harming self", "question": "Does the patient engage in behaviors despite the risk of harm to self or others"},
-    {"category":"selfconcept", "definition": "grandiose sense of self (self-centered), low self-esteem, perception of self, identity of self", "question": "Does the patient have difficulty with awareness and beliefs about oneself, including inherent value, personal appearance, and abilities"},
-    {"category":"selfharm", "definition": "intentionally harming self", "question": "Does the patient intentionally cause harm to onself, including suicidal behaviors"},
-    {"category":"sensory" , "definition": "trying to seek certain senses, defensive to certain senses, sensitive to certiain senses of the body", "question": "Does the patient have difficulty with the ability to tolerate, process, and integrate sensory stimuli"},
-    {"category":"sleep", "definition": "anything related to sleep, waking up, tired, insomnia, fatigue, lethargy", "question": "Does the patient have difficulty with sleep and waking"},
-    {"category":"sexual" , "definition": "sexual -- not yet defined", "question": "Does the patient ... not yet defined"},
-    {"category":"somatic", "definition": "relating to the body, appetite (feeling hungry), feelings of weekness, tremors, diziness, nausea, basically anything you would go to the doctors for", "question": "Does the patient have the presentation of physical symptoms"},
-    {"category":"substance" , "definition":"anything related to substances, drugs such as alcohol, caffeine, etc. ", "question": "Does the patient have difficulty with anything related to substance (drugs, alcohol, caffeine, tobacco, etc.)" },
-    {"category":"thought", "definition":"flashbacks, intrusive thoughts, delusions, paranoia, racing thoughts, blank, hoarding", "question": "Does the patient have difficulty with thought process or content"}
+    {"category":"adl", "definition": "need care/support to carry out daily tasks such as grocery shopping, having a job, raising a family, etc.", "question": "Does the client have difficulty with the ability to provide basic, age-appropriate self-care (bathing, eating, toileting, etc.)"},
+    {"category":"attachment", "definition" : "person-specific, making meaningful relationships, having problems getting close to people, opening up to people, too much or too little trust in strangers, feeling of abandonment", "question": "Does the client have difficulty with the ability to form meaningful relationships with others"},
+    {"category":"attention", "definition": "related impulse control, information cannot be accessed readily, focus is not where it is supposed to be, consistent irresponsibility, not bringing something because you didn't know you had to, disorganized  getting distracted by something else, having lots of things going on at once, fidgeting", "question": "Does the client have difficulty with the ability to apply sustained attention or effort"},
+    {"category":"avoidance", "definition": "avoidance -- not yet defined", "question": "Does the client have problems with avoidance of stimuli, such as specific emotions, people or places"},
+    {"category":"behavior", "definition": "related impulse control, information cannot be accessed readily, focus is not where it is supposed to be, consistent irresponsibility, not bringing something because you didn't know you had to, disorganized  getting distracted by something else, having lots of things going on at once, fidgeting", "question": "Does the client have deviation from expected adaptive behavior"},
+    {"category":"cogdev", "definition": "cognitive milestones, learning, IQ, academic skills, reading, writing, speech but not communication, includes verbal, grammar, vocabulary, pronunciation", "question" : "Does the client have difficulty with development of cognitive skills and abilities (intelligence, learning, language acquisition)"},
+    {"category":"communication", "definition": "not person specific, generalized, conveyance of ideas, reciprocity", "question": "Does the client have difficulty with the ability to engage in reciprocal communication; effectively share and understand ideas/information"},
+    {"category":"prereq", "definition": "of medication, of trauma, of neglect, of experience, medical history, family history, requisite, requirement", "question": "Does the client have a prior history that is relevant to your diagnosis? E.g. history of trauma, medical condition, etc." },
+    {"category":"concentration", "definition": "cannot focus because you are unable to, not because attention is pulled to something else, increase in goal-directed activity, too much attention to productivity/work/job", "question": "Does the client have difficulty with concentration or focus" },
+    {"category":"delusion", "definition": "believing in a different reality ", "question": "Does the client have difficulty with having an idiosyncratic belief or thought process that is firmly maintained"},
+    {"category":"detachment", "definition": "derealization, depersonalization, feeling like things are like a dream", "question": "Does the client have a feeling of disconnection from one's body or surroundings"},
+    {"category":"duration", "definition": "must have happened for a certain period of time", "question": "Have the symptoms persisted for longer than 3 months" },
+    {"category":"feeling", "definition": "emotion, state of being, mood, fear, nervousness, worry, feeling of~, sexually aroused by ~ (exclude feeling of abandonment)", "question": "Does the client have disturbance of emotional state or response"},
+    {"category":"hallucination", "definition": "sensory perception of something that does not exist ", "question": 'Does the client have perception of sensory stimuli in the absence of external stimulus ("seeing things","hearing voices", etc.)'},
+    {"category":"iho", "definition": "damaging property, hitting, burning, etc.", "question": "Has the client intended to harm others (damaging property, hit, burning, etc.)"},
+    {"category":"impulse", "definition": "doing stuff b/c of incapability of making judgments", "question": "Does the client have the inability to calculate consequences before engaging in an action or behavior"},
+    {"category":"motor", "definition": "movement, too much resistance, posture, grossly disorganized/catatonic behavior, unconscious/reflex stuff, psychomotor agitation ", "question": "Does the client have difficulty with expected use and movement of the body"},
+    {"category":"onset", "definition": "age of onset", "question": "Did the issue begin prior to adulthood" },
+    {"category":"orientation", "definition": "awareness of time, place, who you are", "question": "Does the client have difficulty with awareness of time, surroundings, and personal identity"},
+    {"category":"rigidity", "definition": "has to be this way, insistence on sameness, inflexible adherence to routines", "question": "Does the client have insistence on sameness; inflexible adherence to routines; engaging in ritualistic behavior"},
+    {"category":"risk", "definition":"potentially harming self", "question": "Does the client engage in behaviors despite the risk of harm to self or others"},
+    {"category":"selfconcept", "definition": "grandiose sense of self (self-centered), low self-esteem, perception of self, identity of self", "question": "Does the client have difficulty with awareness and beliefs about oneself, including inherent value, personal appearance, and abilities"},
+    {"category":"selfharm", "definition": "intentionally harming self", "question": "Does the client intentionally cause harm to onself, including suicidal behaviors"},
+    {"category":"sensory" , "definition": "trying to seek certain senses, defensive to certain senses, sensitive to certiain senses of the body", "question": "Does the client have difficulty with the ability to tolerate, process, and integrate sensory stimuli"},
+    {"category":"sleep", "definition": "anything related to sleep, waking up, tired, insomnia, fatigue, lethargy", "question": "Does the client have difficulty with sleep and waking"},
+    {"category":"sexual" , "definition": "sexual -- not yet defined", "question": "Does the client experience problems related to sex"},
+    {"category":"somatic", "definition": "relating to the body, appetite (feeling hungry), feelings of weekness, tremors, diziness, nausea, basically anything you would go to the doctors for", "question": "Does the client have the presentation of physical symptoms"},
+    {"category":"substance" , "definition":"anything related to substances, drugs such as alcohol, caffeine, etc. ", "question": "Does the client have difficulty with anything related to substance (drugs, alcohol, caffeine, tobacco, etc.)" },
+    {"category":"thought", "definition":"flashbacks, intrusive thoughts, delusions, paranoia, racing thoughts, blank, hoarding", "question": "Does the client have difficulty with thought process or content"}
   ]
 
     //this is what is used for the conntextmenu, the selections that appear once the user right clicks 
