@@ -25,7 +25,7 @@ def index():
 	return str(rv)
 
 # Route for form with the button 
-@app.route('/result', methods=['POST', 'GET'])
+@app.route('/button', methods=['POST', 'GET'])
 def result():
 	return render_template('button.html')
 
