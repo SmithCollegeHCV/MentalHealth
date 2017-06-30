@@ -1,0 +1,287 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>DSM Diagnoses Adjacency Matrix</title>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="d3.tip.js"></script>
+<link rel="stylesheet" href="mentalHealth.css" type="text/css">
+<style>
+  .background {
+    fill: white;
+  }
+
+  line {
+    stroke: lightgray;
+  }
+
+  text.active {
+  	fill: red;
+  }
+
+  h1 {
+  	font-family: "Arial";
+  }
+
+  text {
+  	font-family: "Arial";
+  	font-size: 12;
+  	line-height: 2;
+  }
+
+  aside {
+  	font-family: "Arial";
+  }
+
+  .d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+  }
+
+  /* Creates a small triangle extender for the tooltip */
+  .d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+  }
+
+  /* Style northward tooltips differently */
+  .d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+  }
+</style>
+</head>
+<body>
+<div class="topnav">
+  <a class="active" href="matrix_4ngrams.html">4 n-grams</a>
+  <a href="matrix_manuallyencoded.html">Manually Categorized</a>
+</div>
+  <h1>DSM Diagnoses Adjacency Matrix (4 n-grams)</h1>
+  <aside style="margin-top: 12px;">
+    <!-- Dropdown menu to change how matrix is organized. -->
+  	<p>
+  	Order:
+  		<select id="order">
+  			<option value="name">by Name</option>
+  			<option value="count">by Frequency</option>
+  			<option value="chapter">by Chapter</option>
+        <option value="group">by Cluster</option> <!--Not yet implemented-->
+  		</select>
+  	</p>
+  </aside>
+  <script>
+  //Credits: based on code from Mike Bostock's adjacency matrix. D3 tip was created by Justin Palmer and adapted for D3 version 4 by Constantin Gavrilete and David Gotz.
+    var width = 2600,
+        height = 2600,
+        margin = {top: (width/4), right: 0, bottom: 10, left: (width/4)};
+
+    var x = d3.scaleBand().rangeRound([0, width]),
+        z = d3.scaleLinear().domain([0, 4]).clamp(true),
+        c = d3.scaleOrdinal(d3.schemeCategory10).domain(d3.range(10));
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .style("margin-left", + margin.left + "px")
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var value = 0;
+
+    var costip = d3.tip()
+      .attr('class', 'd3-tip')
+
+    svg.call(costip)
+
+    var codes = [];
+
+    d3.json("node_dic_4.json", function(dsm) {
+      var matrix = [],
+          nodes = dsm.nodes,
+          n = nodes.length;
+
+      // Compute index per node.
+      nodes.forEach(function(node, i) {
+        i = parseFloat(i);
+        node.index = i;
+        node.count = 0;
+        matrix[i] = d3.range(n).map(function(j) {
+          //j = index of current box?
+          return {x: j, y: i, z: 0}; });
+        //create list of codes to index into (1st node in nodes = 0, 2nd = 1, ...)
+        var contains;
+        for (var counter = 0; counter < codes.length; counter++) {
+          if (codes[counter] === node.code) {
+            contains = true;
+          }
+        }
+        if (!contains) { codes.push(node.code);}
+      });
+
+      // Convert links to matrix; count character occurrences.
+      dsm.links.forEach(function(link) {
+        //index into codes
+        for (var sourceIndex = 0; sourceIndex < codes.length; sourceIndex++) {
+          if (link.source == codes[sourceIndex]) {
+            break;
+          }
+        }
+        for (var targetIndex = 0; targetIndex < codes.length; targetIndex++) {
+          if (link.target == codes[targetIndex]) {
+            break;
+          }
+        }
+        //assign value to each box in matrix
+        matrix[sourceIndex][targetIndex].z += link.value;
+        matrix[targetIndex][sourceIndex].z += link.value;
+        //matrix[sourceIndex][sourceIndex].z += link.value;
+        //matrix[targetIndex][targetIndex].z += link.value;
+        nodes[sourceIndex].count += link.value;
+        nodes[targetIndex].count += link.value;
+      });
+
+      // Precompute the orders.
+      var orders = {
+        name: d3.range(n).sort(function(a, b) { return d3.ascending(nodes[a].name, nodes[b].name); }),
+        count: d3.range(n).sort(function(a, b) { return nodes[b].count - nodes[a].count; }),
+        chapter: d3.range(n).sort(function(a, b) { return nodes[b].chapter - nodes[a].chapter; }),
+        group: d3.range(n).sort() //generate by (k-means?) clustering on similarities
+      };
+
+      // The default sort order.
+      x.domain(orders.name);
+
+    //background square
+    svg.append("rect")
+      .attr("class", "background")
+      .attr("width", width)
+      .attr("height", height);
+
+    var row = svg.selectAll(".row")
+      .data(matrix)
+      .enter().append("g")
+        .attr("class", "row")
+        .attr("transform", function(d, i) { return "translate(0," + x(i) + ")"; })
+        .each(row);
+
+      row.append("line")
+          .attr("x2", width);
+
+      //display code and name text on y axis
+      row.append("text")
+        .attr("x", -6)
+        .attr("y", x.bandwidth() / 2)
+        .attr("dy", ".32em")
+        .attr("text-anchor", "end")
+        .text(function(d, i) { return nodes[i].code + " (" + nodes[i].name + ")"; });//maybe instead: hover over f code to get name of diagnosis in tooltip
+
+    var column = svg.selectAll(".column")
+      .data(matrix)
+      .enter().append("g")
+        .attr("class", "column")
+        .attr("transform", function(d, i) { return "translate(" + x(i) + ")rotate(-90)"; });
+
+      column.append("line")
+          .attr("x1", -width);
+
+      //display code and name text on x axis
+      column.append("text")
+          .attr("x", 6)
+          .attr("y", x.bandwidth() / 2)
+          .attr("dy", ".32em")
+          .attr("text-anchor", "start")
+          .text(function(d, i) { return nodes[i].code + " (" + nodes[i].name + ")"; });
+
+      function row(row, rowNum) {
+        var cell = d3.select(this).selectAll(".cell")
+            .data(row.filter(function(d) {
+              return d.z; }))
+            .enter().append("rect")
+            .attr("class", "cell")
+            .attr("x", function(d) { return x(d.x); })
+            .attr("width", x.bandwidth())
+            .attr("height", x.bandwidth())
+            //darkness of color determined by z
+            .style("fill-opacity", function(d) {
+              return z(d.z);
+            })
+            //chapter determines color
+            .style("fill", function(d) { return nodes[d.x].chapter == nodes[d.y].chapter ? c(nodes[d.x].chapter) : null; })
+            .on("mouseover", mouseover)
+            .on("mouseout", mouseout);
+      }
+
+    //change row & column text class to active, turning it red
+      function mouseover(p) {
+        //p.y and p.x are box index numbers in the selectAll functions, but always 0 when called in the links for each loop
+        var yBoxIndex = 0;
+        var xBoxIndex = 0;
+        //tip works b/c text labels are in the same order as in codes
+        d3.selectAll(".row text").classed("active", function(d, i) {
+          yBoxIndex = p.y;
+          return i == p.y;
+        });
+        d3.selectAll(".column text").classed("active", function(d, i) {
+          xBoxIndex = p.x;
+          return i == p.x; });
+        //get value to be displayed in costip
+        dsm.links.forEach(function(link) {
+          //console.log("source: " + link.source + " " + codes[xBoxIndex] + " target: " + link.target + " " + codes[yBoxIndex]);
+          if ((link.source == codes[xBoxIndex] && link.target == codes[yBoxIndex]) || (link.source == codes[yBoxIndex] && link.target == codes[xBoxIndex])) {
+            value = link.value;
+          }
+      })
+        //display tip
+        costip.html(function(d) {return value;})
+        costip.show();
+      }
+
+    //change row & column text class to inactive --> text color returns to default
+      function mouseout() {
+        d3.selectAll("text").classed("active", false);
+        value = undefined;
+        costip.hide();
+      }
+
+      d3.select("#order").on("change", function() {
+        clearTimeout(timeout);
+        order(this.value);
+      });
+
+      function order(value) {
+        x.domain(orders[value]);
+
+        var t = svg.transition().duration(2500);
+
+        t.selectAll(".row")
+            .delay(function(d, i) { return x(i) * 4; })
+            .attr("transform", function(d, i) { return "translate(0," + x(i) + ")"; })
+          .selectAll(".cell")
+            .delay(function(d) { return x(d.x) * 4; })
+            .attr("x", function(d) { return x(d.x); });
+
+        t.selectAll(".column")
+            .delay(function(d, i) { return x(i) * 4; })
+            .attr("transform", function(d, i) { return "translate(" + x(i) + ")rotate(-90)"; });
+      }
+
+    //change matrix based on order class
+      var timeout = setTimeout(function() {
+        order("group");
+        d3.select("#order").property("selectedIndex", 2).node().focus();
+      }, 5000);
+    })
+  </script>
+</body>
+</html>

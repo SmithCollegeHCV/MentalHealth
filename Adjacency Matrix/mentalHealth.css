@@ -1,0 +1,292 @@
+/*CSS for 235*/
+
+/* heading for each page */
+h1 {
+    font-size: 43px;
+    text-align: center;
+    background: linear-gradient(#e2efff, #fbfdff);
+    padding: 50px;
+    margin-top: 0px;
+}
+
+/* body */
+body {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  font-family: 'Muli', sans-serif;
+}
+
+/* brief description on homePaage.html */
+.summary {
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px;
+  border: 1px solid #DCDCDC;
+}
+
+/* horizontal navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* horizontal navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* horizontal navigation bar (when a mouse hovers) */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* horizontal navigation bar (color change that represent user is on that specific page */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* circle of bubble chart when active (selected) */
+circle.active{
+  fill: red;
+ }
+
+/* decision tree node */
+.node {
+  cursor: pointer;
+}
+
+/* decision tree circle on node */
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+/* decision tree text on node */
+.node text {
+  font: 10px sans-serif;
+}
+
+/* decision tree link */
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+/* context menu for bubble chart */
+.d3-context-menu {
+  position: absolute;
+  display: none;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  min-width: 150px;
+  border: 1px solid #d4d4d4;
+
+  z-index:1200;
+}
+
+/* context menu for bubble chart */
+.d3-context-menu ul {
+  list-style-type: none;
+  margin: 4px 0px;
+  padding: 0px;
+  cursor: default;
+}
+
+/* context menu for bubble chart */
+.d3-context-menu ul li {
+  padding: 4px 16px;
+}
+
+/* context menu for bubble chart */
+.d3-context-menu ul li:hover {
+  background-color: #4677f8;
+  color: #fefefe;
+}
+
+circle.notactive{
+  fill: gray;
+  r: 10;
+ }
+
+circle.selected{
+  fill: red;
+  fill-opacity:0.6;
+  r:Math.sqrt(10000*1/Math.PI);
+ }
+
+.boxed {
+  position: relative;
+  float: right;
+  margin-right: 30px;
+  width: 480px;
+  height: 500px;
+  border: 1px solid #DCDCDC;
+  overflow: scroll;
+  padding: 10px;
+
+}
+
+.question{
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  width: 45%;
+  height: 50px;
+  border: 1px solid #DCDCDC;
+  padding: 10px;
+
+}
+
+.anotherQuestion{
+  position: absolute;
+  top: 778px;
+  right: 0;
+  margin-right: 30px;
+  width: 480px;
+  height: 50px;
+  border: 1px solid #DCDCDC;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+.d3-tip {
+  max-width: 300px;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+ .d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+svg{
+  padding-top: 40px;
+  padding-right: 10px;
+  /*padding-left: 40px;*/
+  /*margin-left: 30px;*/
+}
+
+.boxInAbox{
+  position: absolute;
+  top: 752px;
+  right: 0;
+  margin-right: 30px;
+  width: 497px;
+  border: 1px solid #DCDCDC;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  padding-top: 1px;
+  padding-bottom: 3px;
+  
+}
+
+.key{
+  position: relative;
+  /*border: 1px solid #DCDCDC;*/
+  width: 150px;
+  height: 150px;
+  /*text-align: center;*/
+  float: left;
+  margin-left: 20px;
+}
+
+.key_1{
+  position: relative;
+  border-radius: 30px;
+  background-color: #43BFC7;
+  opacity: 0.4;
+  width: 15px;
+  height: 15px;
+  float: left;
+  margin-top: 35px;
+  margin-left: 30px;
+}
+
+.description_1{
+  font-size: 13px;
+  float: left;
+  margin-top: 33px;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.key_2{
+  position: absolute;
+  border-radius: 30px;
+  background-color: red;
+  opacity: 0.4;
+  width: 15px;
+  height: 15px;
+  float:left;
+  margin-top: 65px;
+  margin-left: 30px;
+}
+
+.description_2{
+  font-size: 13px;
+  margin-top: 63px;
+  margin-left: 67px;
+  font-weight: bold;
+}
+
+.key_3{
+  position: absolute;
+  border-radius: 30px;
+  background-color: gray;
+  opacity: 0.4;
+  width: 15px;
+  height: 15px;
+  float:left;
+  margin-top: 18px;
+  margin-left: 30px;
+}
+
+.description_3{
+  font-size: 13px;
+  margin-top: 15px;
+  margin-left: 68px;
+  font-weight: bold;
+
+}
+
+.authors{
+  font-size: 12px;
+  margin-top: 180px;
+  text-align: center;
+  color: gray;
+}
