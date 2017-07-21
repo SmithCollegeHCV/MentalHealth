@@ -1,0 +1,60 @@
+h1 {
+    font-size: 50px;
+    font-family: 'Dosis', sans-serif;
+    color: white;
+    text-align: left;
+    /*background: linear-gradient(#e2efff, #fbfdff);*/
+    background-image: url(headerBackground_new2.jpg);
+    /*background-repeat: no-repeat;
+    background-position: 50px 100px;
+    background-attachment: fixed;*/
+    padding: 50px;
+    margin: 0;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+body {
+	font-family: 'Alegreya Sans';
+	font-weight: bold;
+}
+
+.allDomains{
+	background-color: #82D8E5;
+	height: 600px;
+	width: 13%;
+	float: left;
+}
+
+.domain {
+	color: #2D8896;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	float:left;
+	overflow: auto;
+	width: 100%;
+	background-color: #82D8E5;
+}
+
+.categories{
+	font-size: 17px;
+	width: 13%;
+	float: left;
+	background-color: #ecf7f9;
+	padding-left: 6px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	overflow: auto;
+	height: 275px;
+}
+
+.question{
+	padding: 5px;
+	width: 25%;
+	float: left;
+	overflow: auto;
+	height: 590px;
+	background-color: #ecf7f9;
+}
+
+
