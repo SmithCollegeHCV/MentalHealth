@@ -39,6 +39,7 @@ var color = d3.scale.ordinal()
       .range(["#FFE4C4" /*bisque*/, "#8FBC8F" /*dark sea green*/, "#ADD8E6"/*light blue*/, "#FFB6C1" /*light pink*/, "#CD853F" /*peru*/, "#DDA0DD"/*plum*/, "#C0C0C0" /*silver*/, "#98FB98" /*light tomato*/, "#FA8072" /*salmon*/, "#8376d5" /*light slate blue*/, "#9ACD32" /*yellowgreen*/, "#F5F5F5" /*white smoke*/, "#DC143C", "#D8BFD8", "#F4A460", "#98FB98", "#FFD700", "#B0C4DE", "#b300b3", "#DB7093"]);
 
 d3.text("12clusters30PCs_v2_withNames.csv", function(error, text) {
+	//placeholder file; need to find correct keywords for 12 clusters
 	d3.text("key_words20c30PC_v3.csv", function(error, info) {
 		var keywordData = d3.csv.parse(info);
 
