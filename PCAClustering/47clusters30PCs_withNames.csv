@@ -1,0 +1,224 @@
+code,group,diagnosis,chapter
+F70(Mild)|F71(Moderate)|F72(Severe)|F73(Profound),2,Intellectual disabilities,1
+F88_Global Developmental Delay,2,Global Developmental Delay,1
+F90.8,44,Other Specified Attention-Deficit/Hyperactivity Disorder,1
+F51.01,12,Insomnia Disorder,12
+F51.11,12,Hypersomnolence Disorder,12
+"G47.419(without cataplexy with hypocretin deficiency)|G47.411(with cataplexy without hypocretin deficiency)|G47.419(Autosomal dominant cerebellar ataxia, deafness, and narcolepsy)|G47.419(Autosomal dominant narcolepsy, obesity, and type 2 diabetes)|G47.429(Narcolepsy secondary to another medical condition)",12,Narcolepsy with cataplexy but without hypocretin deficiency,12
+G47.33,12,Obstructive Sleep Apnea Hypopnea,12
+G47.31(Idiopathic central sleep apnea)|R06.3(Cheyne-Stokes breathing)|G47.37(Central sleep apnea comorbid with opioid use),12,Central Sleep Apnea,12
+G47.34(Idiopathic)|G47.35(Congenital central alveolar|G47.36(Comorbid sleep-related),12,Sleep-Related Hypoventilation,12
+G47.21(Delayed sleep phase)|G47.22(Advanced sleep phase|G47.23(Irregular sleep-wake)|G47.24(Non-24-hour sleep-wake)|G47.26(Shift work|G47.20(Unspecified type),12,Circadian Rhythm Sleep-Wake Disorders,12
+F51.3(sleepwalking)|F51.4(sleep terror),12,Non-Rapid Eye Movement Sleep Arousal Disorders,12
+F51.5,6,Nightmare Disorder,12
+G47.52,12,Rapid Eye Movement Sleep Behavior Disorder,12
+F90.9,42,Unspecified Attention-Deficit/ Hyperactivity Disorder,1
+G25.81,6,Restless Legs Syndrome,12
+F10.182|F15.182|F12.182|F11.182|F13.182|F14.182|F19.182|F10.282|F15.282|F12.282|F11.282|F13.282|F14.282|F19.282|F17.208|F10.982|F15.982|F12.982|F11.982|F13.982|F14.982|F19.982,8,Substance/Medication-Induced Sleep Disorder,12
+G47.09,33,Other insomnia,12
+G47.00,23,Unspecified Insomnia Disorder,12
+G47.19,44,Other Specified Hypersomnolence Disorder,12
+G47.10,42,Unspecified Hypersomnolence Disorder,12
+G47.8,33,Other Specified Sleep-Wake Disorder,12
+G47.9,23,Unspecified Sleep-Wake Disorder,12
+F52.32,46,Delayed Ejaculation,13
+F52.21,46,Erectile Disorder,13
+F81.0(With impairment in reading)|F81.81(With impairment in written expression)|F81.2(With impairment in mathematics),4,Specific Learning Disorder,1
+F52.31,46,Female Orgasmic Disorder,13
+F52.22,43,Female Sexual Interest/Arousal Disorder,13
+F52.6,43,Genito-Pelvic Pain/Penetration Disorder,13
+F52.0,43,Male Hypoactive Sexual Desire Disorder,13
+F52.4,43,Premature (Early) Ejaculation,13
+Sexual Dysfunction_F10.181|F11.181|F13.181|F14.181|F15.181|F19.181|F10.281|F11.281|F13.281|F14.281|F15.281|F19.281|F10.981|F11.981|F13.981|F14.981|F15.981|F19.981,8,Substance/Medication-Induced Sexual Dysfunction,13
+F52.8,33,Other Specified Sexual Dysfunction,13
+F52.9,23,Unspecified Sexual Dysfunction,13
+F64.2,38,Gender Dysphoria in Children,14
+F64.0,38,Gender Dysphoria in Adolescents and Adults,14
+F82,4,Developmental Coordination Disorder,1
+F64.8,33,Other Specified Gender Dysphoria,14
+F64.9,23,Unspecified Gender Dysphoria,14
+F91.3,34,Oppositional Defiant Disorder,15
+F63.81,34,Intermittent Explosive Disorder,15
+F91.1(Childhood-onset)|F91.2(Adolescent-onset)|F91.9(Unspecified onset),34,Conduct Disorder: Childhood-onset type,15
+F63.1,9,Pyromania,15
+F63.2,9,Kleptomania,15
+F91.8,33,"Other Specified Disruptive, Impulse-Control, and Conduct Disorder",15
+F91.9,23,Conduct Disorder: Unspecified onset,15
+F10.10(Mild)|F10.20(Moderate/Severe),20,Alcohol Use Disorder,16
+F98.4,32,Stereotypic Movement Disorder,1
+F10.129|F10.229,25,Alcohol Intoxication comorbid with Alcohol Use Disorder,16
+F10.239|F10.232,25,Alcohol Withdrawal,16
+F10.99,21,Unspecified Alcohol-Related Disorder,16
+F15.929,25,Caffeine Intoxication,16
+F15.93,25,Caffeine Withdrawal,16
+F15.99,21,Unspecified Caffeine- or other Stimulant-Related Disorder,16
+F12.10(Mild)|F12.20(Moderate/Severe),20,Cannabis Use Disorder,16
+F12.129|F12.229|F12.929|F12.122|F12.222|F12.922,25,Cannabis Intoxication,16
+F12.288,25,Cannabis Withdrawal,16
+F12.99,21,Unspecified Cannabis-Related Disorder,16
+F95.2,32,Tourette's Disorder,1
+F16.10(Mild)|F16.20(Moderate)|F16.20(Severe)_Phencyclidine,20,Other Hallucinogen Use Disorder,16
+F16.10(Mild)|F16.20(Moderate)|F16.20(Severe)_Other Hallucinogen,20,Other Hallucinogen Use Disorder,16
+F16.129|F16.229|F16.929_Phencyclidine,25,Phencyclidine Intoxication,16
+F16.129|F16.229|F16.929_Other Hallucinogen,25,Hallucinogen Intoxication,16
+F16.983,25,"Hallucinogen use, unspecified with hallucinogen persisting perception disorder (flashbacks)",16
+F16.99_Unspecified Phencyclidine,21,Unspecified Phencyclidine-Related Disorder,16
+F16.99_Unspecified Hallucinogen,21,Unspecified Hallucinogen-Related Disorder,16
+F18.10(Mild)|F18.20(Moderate)|F18.20(Severe),20,Inhalant Use Disorder,16
+F18.129|F18.229|F18.929,25,Inhalant Intoxication,16
+F18.99,21,Unspecified Inhalant-Related Disorder,16
+F95.1,32,Persistent (chronic) motor or vocal tic disorder,1
+F11.10(Mild)|F11.20(Moderate/Severe),20,Opioid Use Disorder,16
+F11.129|F11.229|F11.929,25,Opioid Intoxication,16
+F11.23,25,Opioid Withdrawal,16
+F11.99,21,Unspecified Opioid-Related Disorder,16
+F13.10(Mild)|F13.20(Moderate/Severe),19,"Sedative, Hypnotic, or Anxiolytic Use Disorder",16
+F13.129|F13.229|F13.929,19,"Sedative, Hypnotic, or Anxiolytic Intoxication",16
+F13.239|F13.232,19,"Sedative, Hypnotic, or Anxiolytic Withdrawal",16
+F13.99,19,"Unspecified Sedative-, Hypnotic-, or Anxiolytic-Related Disorder",16
+Mild:F15.10(Amphetamine-type substance)|F14.10(Cocaine)|F15.10(Other or unspecified stimulant) Moderate/Severe: F15.20(Amphetamine-type substance)|F14.20(Cocaine)|F15.20(Other or unspecified stimulant),20,Stimulant Use Disorder,16
+F15.129|F15.229|F15.929|F14.129|F14.229|F14.929|F15.122|F15.222|F15.922|F14.122|F14.222|F14.922,14,Caffeine Intoxication,16
+F95.0,32,Provisional tic disorder,1
+F14.23|F15.23,14,Stimulant Withdrawal,16
+F14.99|F15.99,21,Unspecified Stimulant-Related Disorders,16
+Z72.0(Mild)|F17.200(Moderate)|F17.200(Severe),20,Tobacco Use Disorder,16
+F17.203,25,Tobacco Withdrawal,16
+F17.209,21,Unspecified Tobacco-Related Disorder,16
+F19.10(Mild)|F19.20(Moderate/Severe),20,Other (or Unknown) Substance Use Disorder,16
+F19.129|F19.229|F19.929,39,Other (or Unknown) Substance Intoxication,16
+F19.239,39,Other (or Unknown) Substance Withdrawal,16
+F19.99,21,Unspecified Other (or Unknown) Substance_Related Disorder,16
+F63.0,7,Gambling Disorder,16
+F95.8,33,Other Specified Tic Disorder,1
+F10.121|F12.121|F16.121|F18.121|F11.121|F13.121|F15.121|F14.121|F19.121|F10.221|F12.221|F16.221|F18.221|F11.221|F13.221|F15.221|F14.221|F19.221|F10.921|F12.921|F16.921|F18.921|F11.921|F13.921|F15.921|F14.921|F19.921,13,Delirium,17
+R41.0_other specified,33,Other Specified Delirium,17
+R41.0_unspecified,42,Unspecified Delirium,17
+"G30.9, F02.81/F02.80|G31.84_Alzheimers Disease",29,Major or Mild Neurocognitive Disorder Due to Alzheimer's Disease,17
+"G31.09, F02.81/F02.80|G31.84_Frontotemporal",29,Major or Mild Frontotemporal Neurocognitive Disorder,17
+"G31.83, F02.81/F02.80|G31.84_Lewy Bodies",29,Major or Mild Neurocognitive Disorder With Lewy Bodies,17
+"F01.51,F01.50|G31.84_Vascular",29,Major or Mild Vascular Neurocognitive Disorder,17
+"S06.2X9S, F02.81/F02.80|G31.84_Traumatic Brain Injury",17,Major or Mild Neurocognitive Disorder Due to Traumatic Brain Injury,17
+F10.27|F10.97|F10.26|F10.96|F10.288|F10.988|F18.17|F18.27|F18.97|F18.188|F18.288|F18.988|F13.27|F13.97|F13.288|F13.988|F19.17|F19.27|F19.97|F19.188|F19.288|F19.988_Substance,13,Substance/Medication-Induced Major or Mild Neurocognitive Disorder,17
+"B20, F02.81/F02.80|G31.84_HIV Infection",29,Major or Mild Neurocognitive Disorder Due to HIV Infection,17
+F95.9,23,Unspecified Tic Disorder,1
+"A81.9, F02.81/F02.80|G31.84_Prion Disease",28,Major or Mild Neurocognitive Disorder Due to Prion Disease,17
+"G20, F02.81/F02.80|G31.84_Parkinsons Disease",29,Major or Mild Neurocognitive Disorder Due to Parkinson's Disease,17
+"G10, F02.81/F02.80|G31.84_Huntingtons",29,Major or Mild Neurocognitive Disorder Due to Huntington's Disease,17
+"[Another Medical Condition], F02.81, F02.80|G31.84_Another Medical Condition",28,Major or Mild Neurocognitive Disorder Due to Another Medical Condition,17
+"F02.81/F02.80, [code of etiologies]|G31.84_Multiple Etiologies",28,Major or Mild Neurocognitive Disorder Due to Multiple Etiologies,17
+R41.9,21,Unspecified Neurocognitive Disorder,17
+F60.0,11,Paranoid Personality Disorder,18
+F60.1,11,Schizoid Personality Disorder,18
+F21,11,Schizotypal Personality Disorder,18
+F60.2,7,Antisocial Personality Disorder,18
+F79,2,Unspecified intellectual disabilities,1
+F88_other specified neurodevelopmental disorder,33,Global Developmental Delay,1
+F60.3,22,Borderline Personality Disorder,18
+F60.4,22,Histronic Personality Disorder,18
+F60.81,11,Narcissistic Personality Disorder,18
+F60.6,11,Avoidant Personality Disorder,18
+F60.7,11,Dependent Personality Disorder,18
+F60.5,11,Obsessive-Compulsive Personality Disorder,18
+F07.0,14,Personality Change Due to Another Medical Condition,18
+F60.89,44,Other Specified Personality Disorder,18
+F60.9_unspecified,42,Unspecified Personality Disorder,18
+F65.3,15,Voyeurism,19
+F89,42,Unspecified Neurodevelopmental Disorder,1
+F65.2,15,Exhibitionistic Disorder,19
+F65.81,15,Frotteuristic Disorder,19
+F65.51,16,Sexual Masochism Disorder,19
+F65.52,16,Sexual Sadism Disorder,19
+F65.4,16,Pedophilia,19
+F65.0,16,Fetishism,19
+F65.1,38,Transvestic Disorder,19
+F65.89,36,Other Specified Paraphilic Disorder,19
+F65.9_unspecified,42,Unspecified Paraphilic Disorder,19
+F06.8_other specified,33,Other specified mental disorder due to another medical condition,6
+F22,47,Delusional Disorder,2
+F09,23,Unspecified Mental Disorder Due to Another Medical Condition,20
+F99_other specified,44,Other Specified Mental Disorder,20
+F99_unspecified,42,Unspecified Mental Disorder,20
+F23,47,Brief Psychotic Disorder,2
+F20.81,47,Other developmental disorders of speech and language,2
+F20.9,47,Schizophrenia,2
+F25.0(Bipolar type)|F25.1(Depressive type),47,"Schizoaffective Disorder, bipolar type",2
+"F10.159(alcohol&mild)|F12.159(Cannabis&mild)|F16.159(Phencyclidine&mild)|F16.159(Other hallucinogen&mild)|F18.159(Inhalant&mild)|F13.159(sedative,hypnotic,anxiolytic&mild)|F15.159(Amphetamine&mild)|F14.159(Cocaine&mild)|F19.159(other&mild)F10.259(alcohol&moderate/severe)|F12.259(Cannabis&moderate/severe)|F16.259(Phencyclidine&moderate/severe)|F16.259(Other hallucinogen&moderate/severe)|F18.259(Inhalant&moderate/severe)|F13.259(sedative,hypnotic,anxiolytic&moderate/severe)|F15.259(Amphetamine&moderate/severe)|F14.259(Cocaine&moderate/severe)|F19.259(other&moderate/severe)F10.959(alcohol&without)|F12.959(Cannabis&without)|F16.959(Phencyclidine&without)|F16.959(Other hallucinogen&without)|F18.959(Inhalant&without)|F13.959(sedative,hypnotic,anxiolytic&without)|F15.959(Amphetamine&without)|F14.959(Cocaine&without)|F19.959(other&without)",8,Substance/Medication-Induced Psychotic Disorder,2
+F06.2(With delusions)|F06.0(With hallucinations),1,Psychotic Disorder Due to Another Medical Condition with hallucinations,2
+F06.1_Catatonia,18,Unspecified catatonia,2
+F80.2,4,Language Disorder,1
+F06.1_another medical condition,18,Unspecified catatonia,2
+"R29.818, F06.1",42,Unspecified catatonia,2
+F28,33,Other Specified Schizophrenia Spectrum and Other Psychotic Disorder,2
+F29,23,Unspecified Schizophrenia Spectrum and Other Psychotic Disorder,2
+F31.11|F31.12|F31.13|F31.2|F31.73|F31.74|F31.9|F31.71|F31.72|F31.9|F31.31|F31.32|F31.4|F31.5|F31.75|F31.76|F31.9,24,Bipolar I Disorder,3
+F31.81,24,Bipolar II disorder,3
+F34.0,24,Cyclothymic Disorder,3
+F10.14|F10.24|F10.94|F16.14|F16.24|F16.94|F13.14|F13.24|F13.94|F15.14|F15.24|F15.94|F14.14|F14.24|F14.94|F19.14|F19.24|F19.94|,8,Substance/Medication-Induced Bipolar and Related Disorder,3
+F06.33(with manic feature)|F06.33(with manic or hypomanic-like episode)|F06.34(with mixed feature),1,Bipolar and Related Disorder Due to Another Medical Condition,3
+F31.89,24,Other Specified Bipolar and Related Disorder,3
+F80.0,4,Speech Sound Disorder,1
+F31.9,42,Unspecified Bipolar and Related Disorder,3
+F34.81,34,Disruptive Mood Dysregulation Disorder,4
+Major_depressiveF10.14|F16.14|F18.14|F11.14|F13.14|F15.14|F14.14|F19.14|F10.24|F16.24|F18.24|F11.24|F13.24|F15.24|F14.24|F19.24|F10.94|F16.94|F18.94|F11.94|F13.94|F15.94|F14.94|F19.94,24,Substance/Medication-Induced Bipolar and Related Disorder,3
+F34.1,24,Persistent depressive disorder (dysthymia),4
+F32.81,34,Premenstrual Dysphoric Disorder,4
+Depressive Disorder_F10.14|F16.14|F18.14|F11.14|F13.14|F15.14|F14.14|F19.14|F10.24|F16.24|F18.24|F11.24|F13.24|F15.24|F14.24|F19.24|F10.94|F16.94|F18.94|F11.94|F13.94|F15.94|F14.94|F19.94,8,Substance/Medication-Induced Depressive Disorder,4
+F06.31(With depressive features)|F06.32(With major depressiveېlike episode)|F06.34(With mixed features),1
+F32.89,33,Other Specified Depressive Disorder,4
+F32.9,42,Unspecified Depressive Disorder,4
+F93.0,45,Separation Anxiety Disorder,5
+F80.81,3,Childhood-Onset Fluency Disorder (Stuttering),1
+F94.0,4,Selective Mutism,5
+F40.218(Animal)|F40.228(Natural environment)|F40.23x(Blood-injection-injury)|F40.248(Situational)|F40.298(Other),45,Specific Phobia,5
+F40.10,45,Anxiety Disorder Due to Another Medical Condition,5
+F41.0,45,Panic Disorder,5
+F40.00,45,Agoraphobia,5
+F41.1,45,Generalized Anxiety Disorder,5
+Anxiety Disorder_F10.180|F15.180|F12.180|F16.180|F18.180|F11.180|F13.180|F15.180|F14.180|F19.180|F10.280|F15.280|F12.280|F16.280|F18.280|F11.280|F13.280|F15.280|F14.280|F19.280|F10.980|F15.980|F12.980|F16.980|F18.980|F11.980|F13.980|F15.980|F14.980|F19.980,8,Substance/Medication-Induced Anxiety Disorder,5
+F06.4,1,Anxiety Disorder Due to Another Medical Condition,5
+F41.8,36,Other Specified Anxiety Disorder,5
+F41.9,42,Unspecified Anxiety Disorder,5
+F80.82,4,Social (Pragmatic) Communication Disorder,1
+F42.2,7,Obsessive-Compusive Disorder,6
+F45.22,7,Body dysmorphic disorder,6
+F42.3,7,Hoarding Disorder,6
+F63.3,7,Trichotillomania (hair-pulling disorder),6
+F42.4,7,Excoriation (Skin-Picking) Disorder,6
+OCD_F15.188|F15.288|F15.988|F14.188|F14.288|F14.988|F19.188|F19.288|F19.988,5,Substance/Medication-Induced Obsessive-Compulsive and Related Disorder,6
+F06.8,5,Other specified mental disorder due to another medical condition,6
+F42.8,40,Other Specified Obsessive-Compulsive and Related Disorder,6
+F42.9,40,Unspecified Obsessive-Compulsive and Related Disorder,6
+F94.1,26,Reactive Attachment Disorder,7
+F80.9,42,Unspecified Communication Disorder,1
+F94.2,26,Disinhibited Social Engagement Disorder,7
+F43.10,35,Posttraumatic Stress Disorder,7
+F43.0,35,Acute Stress Disorder,7
+F43.21(With depressed mood)|F43.22(With anxiety)|F43.23(With mixed anxiety and depressed mood)|F43.24(With disturbance of conduct)|F43.25(With mixed disturbance of emotions and conduct)|F43.20(Unspecified),35,Adjustment disorder,7
+F43.8,33,Other Specified Trauma- and Stressor-Related Disorder,7
+F43.9,23,Unspecified Trauma- and Stressor-Related Disorder,7
+F44.81,7,Dissociative Identity Disorder,8
+F44.0(without dissociative fugue)|F44.1(with dissociative fugue),7,Dissociative Amnesia,8
+F48.1,41,Depersonalization/Derealization Disorder,8
+F44.89,33,Other Specified Dissociative Disorder,8
+F84.0,4,Autism Spectrum Disorder,1
+F44.9,42,Unspecified Dissociative Disorder,8
+F45.1,7,Somatic Symptom Disorder,9
+F45.21,7,Illness anxiety disorder,9
+F44.4(with weakness or paralysis/abnormal movement/swallowing symptoms/speech symptom)|F44.5(with attacks or seizures)|F44.6(with anesthesia or sensory loss/special sensory symptom)|F44.7(with mixed symptoms),41,Conversion Disorder (Functional Neurological Symptom Disorder),9
+F54,10,Psychological Factors Affecting Other Medical Conditions,9
+F68.10,41,Factitious Disorder,9
+F45.8,36,Other Specified Somatic Symptom and Related Disorder,9
+F45.9,21,Unspecified Somatic Symptom and Related Disorder,9
+F98.3(children)|F50.89(adults),27,Pica,10
+F98.21,27,Rumination Disorder,10
+F90.2(Combined presentation)|F90.0(Predominantly inattentive presentation)|F90.1(Predominantly hyperactive/impulsive presentation),34,Attention-Deficit/Hyperactivity Disorder,1
+F50.89,31,Avoidant/Restrictive Food Intake Disorder,10
+F50.01(Restricting type)|F50.02(Binge-eating/purging type),31,Anorexia Nervosa,10
+F50.2,31,Bulimia nervosa,10
+F50.81,31,Binge-Eating Disorder,10
+F50.89_other specified,31,Other Specified Feeding or Eating Disorder,10
+F50.9,42,Unspecified Feeding or Eating Disorder,10
+F98.0,37,Enuresis,11
+F98.1,30,Encopresis,11
+N39.498(with urinary symptoms)|R15.9(with fecal symptoms),44,Other Specified Elimination Disorder,11
+R32(with urinary symptoms)|R15.9(with fecal symptoms),42,Unspecified Elimination Disorder,11
