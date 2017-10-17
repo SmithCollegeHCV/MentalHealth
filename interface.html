@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='interface.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<title>Interface</title>
+</head>
+<body>
+<h1>DIAGNOSIS CHECKER</h1>
+<div class="allDomains">
+ 	<div id="brain" class="domain">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<img src="static/brain.svg" style="width:40px;height:40px;"><font size="+2">&nbsp;&nbsp;&nbsp;Brain</b></font>		
+	</div>
+	<br>
+
+	<div id = "emotion" class="domain">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="static/emotion.svg" style="width:40px;height:40px;"><font size="+2">&nbsp;&nbsp;&nbsp;Emotion</b></font>
+	</div>
+	<br>
+
+	<div id="body" class="domain">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="static/body.svg" style="width:40px;height:40px;"><font size="+2">&nbsp;&nbsp;&nbsp;Body</b></font>
+	</div>
+	<br>
+
+	<div id="social" class="domain">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="static/social.svg" style="width:40px;height:40px;"><font size="+2">&nbsp;&nbsp;&nbsp;Social</b></font>
+	</div>
+	<br>
+
+	<div id="action" class="domain">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="static/action.svg" style="width:40px;height:40px;"><font size="+2">&nbsp;&nbsp;&nbsp;Actions</b></font>
+	</div>
+	<br>
+</div>
+
+<div id="brain_cat" class="categories" style="display: none;">
+	<div id = "adl" class="category"><input type="checkbox" value = "adl_check" onclick="return false;">Activities of daily living</div>
+	<div id = "attention" class= "category"><input type="checkbox" value = "attention_check" onclick="return false;">Attention</div>
+	<div id = "behavior" class= "category"><input type="checkbox" value = "behavior_check" onclick="return false;">Behavior</div>
+	<div id = "cogdev" class= "category"><input type="checkbox" value = "cogdev_check" onclick="return false;">Cognitive Development</div>
+	<div id = "communication" class="category"><input type="checkbox" value = "communication_check" onclick="return false;">Communication</div>
+	<div id = "delHal" class="category"><input type="checkbox" value = "delhal_check" onclick="return false;">Delusion/Hallucination </div>
+	<div id = "impulse" class="category"><input type="checkbox" value = "impulse_check" onclick="return false;">Impulse </div>
+	<div id = "judgment" class="category"><input type="checkbox" value = "judgment_check" onclick="return false;">Judgment </div>
+	<div id = "orientation" class="category"><input type="checkbox" value = "orientation_check" onclick="return false;">Orientation </div>
+	<div id="thought" class="category"><input type="checkbox" value = "thought_check">Thought </div>
+</div>
+
+<div id="emotion_cat" class="categories" style="display: none;">
+	<div id= "attachment" class="category"><input type="checkbox" value = "attachment_check" onclick="return false;">Attachment </div>
+	<div id= "delHal" class="category"><input type="checkbox" value = "delhal_check" onclick="return false;">Delusion/Hallucination </div>
+	<div id = "detachment" class="category"><input type="checkbox" value = "detachment_check" onclick="return false;">Detachment </div>
+	<div id = "feeling" class="category"><input type="checkbox" value = "feeling_check" onclick="return false;">Feeling </div>
+	<div id = "impulse" class="category"><input type="checkbox" value = "impulse_check" onclick="return false;">Impulse </div>
+	<div id = "self-concept" class="category"><input type="checkbox" value = "selfconcept_check" onclick="return false;">Self-concept </div>
+	<div id = "self-harm" class="category"><input type="checkbox" value = "selfharm_check" onclick="return false;">Self-harm </div>
+</div>
+
+<div id="body_cat" class="categories" style="display: none;">
+	<div id = "adl" class="category"><input type="checkbox" value = "adl_check" onclick="return false;">Activities of daily living</div>	
+	<div id = "behavior" class= "category"><input type="checkbox" value = "behavior_check" onclick="return false;">Behavior</div>
+	<div id = "eating" class= "category"><input type="checkbox" value = "eating_check" onclick="return false;">Eating</div>
+	<div id = "motor" class = "category"><input type="checkbox" value = "motor_check" onclick="return false;">Motor</div>
+	<div id = "sensory" class = "category"><input type="checkbox" value = "sensory_check" onclick="return false;">Sensory </div>
+	<div id = "sleep" class = "category"><input type="checkbox" value = "sleep_check" onclick="return false;">Sleep</div>
+	<div id = "somatic" class= "category"><input type="checkbox" value = "somatic_check" onclick="return false;">Somatic</div>
+	<div id = "substance" class="category"><input type="checkbox" value = "substance_check" onclick="return false;">Substance</div>
+</div>
+
+<div id="social_cat" class="categories" style="display: none;">
+	<div id = "adl" class="category"><input type="checkbox" value = "adl_check" onclick="return false;">Activities of daily living</div>
+	<div id= "attachment" class="category"><input type="checkbox" value = "attachment_check" onclick="return false;">Attachment </div>
+	<div id= "communication" class="category"><input type="checkbox" value = "communication_check" onclick="return false;">Communication</div>
+	<div id = "iho" class="category"><input type="checkbox" value = "iho_check" onclick="return false;">Inflicting harm on others </div>
+	<div id = "self-concept" class="category"><input type="checkbox" value = "selfconcept_check" onclick="return false;">Self-concept </div>
+</div>
+
+<div id="action_cat" class="categories" style="display: none;">
+	<div id = "adl" class="category"><input type="checkbox" value = "adl_check" onclick="return false;">Activities of daily living</div>
+	<div id = "behavior" class= "category"><input type="checkbox" value = "behavior_check" onclick="return false;">Behavior</div>
+	<div id = "impulse" class="category"><input type="checkbox" value = "impulse_check" onclick="return false;">Impulse </div>
+	<div id = "self-harm" class="category"><input type="checkbox" value = "selfharm_check" onclick="return false;">Self-harm </div>
+	<div id = "substance" class="category"><input type="checkbox" value = "substance_check" onclick="return false;">Substance</div>
+</div>
+
+<div id="adl_Q" class="question" style="display:none;">
+	Does the client use any mind-altering substances such as Cannabis, Hallucinogen, and Phencyclidine? 
+	<br><input type = "radio" value = "adlQ_1" name= "choice">Yes<br>
+	<input type = "radio" value = "adlQ_1" name= "choice">No<br>
+	<input type = "radio" value = "adlQ_1" name= "choice">Not enough information<br><br>
+	The client encounters difficulties with: (choose more than one if necessary)<br>
+	<input type="checkbox" value = "adlQ_2" name = "adl_Q_sev">personal care, such as eating, dressing, elimination, and hygiene<br>
+	<input type="checkbox" value = "adlQ_2">making decisions<br>
+	<input type="checkbox" value = "adlQ_2">household tasks, such as taking care of children, grocery shopping, transportation, and money management<br>
+	<input type="checkbox" value = "adlQ_2">work, such as scheduling, organizing events, solving problems, and working with co-workers<br>
+	<input type="checkbox" value = "adlQ_2">with interacting and communicating with others<br>
+	<input type="checkbox" value = "adlQ_2">recreational activities, such as participating in outdoor activities, watching movies, and listening to music<br>
+	<input type="checkbox" value = "adlQ_2">academic functioning, such as memory, reasoning, and comprehension<br>
+</div>
+
+<div id="adl_A_sev" class="severity" style="display:none;">
+How severe?
+</div>
+
+
+<div id="attachment_Q" class="question" style="display:none;">
+	Does the client use any mind-altering substances such as inhalant substance, Phencyclidine, Cannabis, sedative substance, sedative, hypnotic, and anxiolytic?
+	<br><input type = "radio" value = "attachmentQ_1" name= "choice">Yes<br>
+	<input type = "radio" value = "attachmentQ_1" name= "choice">No<br>
+	<input type = "radio" value = "attachmentQ_1" name= "choice">Not enough information<br><br>
+	Does the client have significant absence of relationships with others?
+	<br><input type = "radio" value = "attachmentQ_2" name= "choice2">Yes<br>
+	<input type = "radio" value = "attachmentQ_2" name= "choice2">No<br>
+	<input type = "radio" value = "attachmentQ_2" name= "choice2">Not enough information<br><br>
+	Is the client often suspicious about others in relationships? (E.g. disloyalty, abandonment, deception)
+	<br><input type = "radio" value = "attachmentQ_3" name= "choice3">Yes<br>
+	<input type = "radio" value = "attachmentQ_3" name= "choice3">No<br>
+	<input type = "radio" value = "attachmentQ_3" name= "choice3">Not enough information<br><br>
+	Does the client feel fear in relationships? (E.g. separation, shame, abandonment)
+	<br><input type = "radio" value = "attachmentQ_4" name= "choice4">Yes<br>
+	<input type = "radio" value = "attachmentQ_4" name= "choice4">No<br>
+	<input type = "radio" value = "attachmentQ_4" name= "choice4">Not enough information<br><br>
+	Does the client act inappropriately while interacting with others? (E.g. excessive attention seeking, preoccupation with details, need for admiration)
+	<br><input type = "radio" value = "attachmentQ_5" name= "choice5">Yes<br>
+	<input type = "radio" value = "attachmentQ_5" name= "choice5">No<br>
+	<input type = "radio" value = "attachmentQ_5" name= "choice5">Not enough information<br><br>
+	Does the client encounter any difficulties with socializing with others? (E.g. understanding and expressing gestural and emotional cues, communicating with others)
+	<br><input type = "radio" value = "attachmentQ_6" name= "choice6">Yes<br>
+	<input type = "radio" value = "attachmentQ_6" name= "choice6">No<br>
+	<input type = "radio" value = "attachmentQ_6" name= "choice6">Not enough information<br>
+</div>
+
+<div id="attention_Q" class="question" style="display:none;">
+	Does the client have any hyperactive-impulsive symptom?
+	<br><input type = "radio" value = "attentionQ_1" name= "choice">Yes<br>
+	<input type = "radio" value = "attentionQ_1" name= "choice">No<br>
+	<input type = "radio" value = "attentionQ_1" name= "choice">Not enough information<br>
+</div>
+
+<div id="behavior_Q" class="question" style="display:none;">
+	Does the client use any mind-altering substances such as Cannabis, Opioid, Hallucinogen, Phencyclidine, and Cocaine? 
+	<br><input type = "radio" value = "behaviorQ_1" name= "choice">Yes<br>
+	<input type = "radio" value = "behaviorQ_1" name= "choice">No<br>
+	<input type = "radio" value = "behaviorQ_1" name= "choice">Not enough information<br><br>
+
+	Does the client have excessive concerns about his/her/their physical health?
+	<br><input type = "radio" value = "behaviorQ_2" name= "choice2">Yes<br>
+	<input type = "radio" value = "behaviorQ_2" name= "choice2">No<br>
+	<input type = "radio" value = "behaviorQ_2" name= "choice2">Not enough information<br><br>
+
+	Does the client behave differently compared to others? (E.g. acting solitarily, passaging feces into inappropriate places)
+	<br><input type = "radio" value = "behaviorQ_3" name= "choice3">Yes<br>
+	<input type = "radio" value = "behaviorQ_3" name= "choice3">No<br>
+	<input type = "radio" value = "behaviorQ_3" name= "choice3">Not enough information<br><br>
+
+	Does the client demonstrate rigidity or stubbornness? (E.g. restricted patterns of behavior, repetitive movements)
+	<br><input type = "radio" value = "behaviorQ_4" name= "choice4">Yes<br>
+	<input type = "radio" value = "behaviorQ_4" name= "choice4">No<br>
+	<input type = "radio" value = "behaviorQ_4" name= "choice4">Not enough information<br><br>
+
+	Does the client have any abnormal eating behavior, such as binge eating and purging?
+	<br><input type = "radio" value = "behaviorQ_5" name= "choice5">Yes<br>
+	<input type = "radio" value = "behaviorQ_5" name= "choice5">No<br>
+	<input type = "radio" value = "behaviorQ_5" name= "choice5">Not enough information<br><br>
+
+	Does the client encounter any difficulties in adjusting to certain situations? (E.g. aggression, self-injury)
+	<br><input type = "radio" value = "behaviorQ_6" name= "choice6">Yes<br>
+	<input type = "radio" value = "behaviorQ_6" name= "choice6">No<br>
+	<input type = "radio" value = "behaviorQ_6" name= "choice6">Not enough information<br><br>
+
+	Does the client have any abnormal behavior while interacting with others? (E.g. communicative deficits, deception)
+	<br><input type = "radio" value = "behaviorQ_7" name= "choice7">Yes<br>
+	<input type = "radio" value = "behaviorQ_7" name= "choice7">No<br>
+	<input type = "radio" value = "behaviorQ_7" name= "choice7">Not enough information<br><br>
+
+	Does the client have any aggressive behavior, including physical or verbal aggression?
+	<br><input type = "radio" value = "behaviorQ_8" name= "choice8">Yes<br>
+	<input type = "radio" value = "behaviorQ_8" name= "choice8">No<br>
+	<input type = "radio" value = "behaviorQ_8" name= "choice8">Not enough information<br>
+</div>
+
+<div id="cogdev_Q" class="question" style="display:none;">
+	The client encounters difficulties with: (choose more than one if necessary)<br>
+	<input type="checkbox" value = "cogdevQ_1">speaking clearly (E.g. slurred speech, broken words, reduced vocabulary)<br>
+	<input type="checkbox" value = "cogdevQ_1">understanding what other people say (E.g. understanding gestures, words, or grammar)<br>
+	<input type="checkbox" value = "cogdevQ_1">learning a language (E.g. reading passages, writing, spelling words)<br>
+	<input type="checkbox" value = "cogdevQ_1">learning fields other than language (E.g. understanding concepts involving time and mathematics, matching based on physical characteristics)<br>
+	<input type="checkbox" value = "cogdevQ_1">adapting to situations<br>
+	<input type="checkbox" value = "cogdevQ_1">recalling things, such as events and concepts<br>
+	<input type="checkbox" value = "cogdevQ_1">controlling emotions<br>
+</div>
+
+<div id="communication_Q" class="question" style="display:none;">
+	Does the communicative deficits of the client affect his/her/their relationships?
+	<br><input type = "radio" value = "communicationQ_1" name= "choice">Yes<br>
+	<input type = "radio" value = "communicationQ_1" name= "choice">No<br>
+	<input type = "radio" value = "communicationQ_1" name= "choice">Not enough information<br><br>
+	Does the client encounter any difficulties in adapting to rules for conversations? (E.g. storytelling, taking turns in conversations, communicating to match context)
+	<br><input type = "radio" value = "communicationQ_2" name= "choice2">Yes<br>
+	<input type = "radio" value = "communicationQ_2" name= "choice2">No<br>
+	<input type = "radio" value = "communicationQ_2" name= "choice2">Not enough information<br><br>
+	Does the client encounter any difficulties in interacting with others? (E.g. greeting, sharing information, normal back-and-forth conversation)
+	<br><input type = "radio" value = "communicationQ_3" name= "choice3">Yes<br>
+	<input type = "radio" value = "communicationQ_3" name= "choice3">No<br>
+	<input type = "radio" value = "communicationQ_3" name= "choice3">Not enough information<br><br>
+	Does the client face any limitation in comprehending speech or gesture?
+	<br><input type = "radio" value = "communicationQ_4" name= "choice4">Yes<br>
+	<input type = "radio" value = "communicationQ_4" name= "choice4">No<br>
+	<input type = "radio" value = "communicationQ_4" name= "choice4">Not enough information<br><br>
+	Does the client encounter any difficulties in expressing his/her/their thoughts verbally?
+	<br><input type = "radio" value = "communicationQ_5" name= "choice5">Yes<br>
+	<input type = "radio" value = "communicationQ_5" name= "choice5">No<br>
+	<input type = "radio" value = "communicationQ_5" name= "choice5">Not enough information<br>
+</div>
+
+
+<div id="delHal_Q" class="question" style="display:none;">
+	Does the client experience hallucinations, such as witnessing events occurred to others and experiencing auditory illusions?
+	<br><input type = "radio" value = "delhalQ_1" name= "choice">Yes<br>
+	<input type = "radio" value = "delhalQ_1" name= "choice">No<br>
+	<input type = "radio" value = "delhalQ_1" name= "choice">Not enough information<br><br>
+	Does the client experience delusions, such as preoccupation with fantasies of unlimited success?
+	<br><input type = "radio" value = "delhalQ_2" name= "choice2">Yes<br>
+	<input type = "radio" value = "delhalQ_2" name= "choice2">No<br>
+	<input type = "radio" value = "delhalQ_2" name= "choice2">Not enough information<br>
+</div>
+
+<div id="detachment_Q" class="question" style="display:none;">
+	In which of the following areas does the client have detachment difficulties with? (choose more than one if necessary)
+	<br><input type = "checkbox" value = "detachmentQ_1">surroundings<br>
+	<input type="checkbox" value = "detachmentQ_1">events<br>
+	<input type="checkbox" value = "detachmentQ_1">identity<br><br>
+	Does the client feel detached from the world around? (Derealization)
+	<br><input type = "radio" value = "detachmentQ_2" name= "choice">Yes<br>
+	<input type = "radio" value = "detachmentQ_2" name= "choice">No<br>
+	<input type = "radio" value = "detachmentQ_2" name= "choice">Not enough information<br><br>
+	Does the client feel detached from oneself? (Depersonalization)
+	<br><input type = "radio" value = "detachmentQ_3" name= "choice2">Yes<br>
+	<input type = "radio" value = "detachmentQ_3" name= "choice2">No<br>
+	<input type = "radio" value = "detachmentQ_3" name= "choice2">Not enough information<br>
+</div>
+
+<div id="eating_Q" class="question" style="display:none;">
+	Does the client have any binge eating symptoms?
+	<br><input type = "radio" value = "eatingQ_1" name= "choice">Yes<br>
+	<input type = "radio" value = "eatingQ_1" name= "choice">No<br>
+	<input type = "radio" value = "eatingQ_1" name= "choice">Not enough information<br><br>
+	Does the client purge after eating?
+	<br><input type = "radio" value = "eatingQ_2" name= "choice2">Yes<br>
+	<input type = "radio" value = "eatingQ_2" name= "choice2">No<br>
+	<input type = "radio" value = "eatingQ_2" name= "choice2">Not enough information<br><br>
+	Does the client show decreased appetite?
+	<br><input type = "radio" value = "eatingQ_3" name= "choice3">Yes<br>
+	<input type = "radio" value = "eatingQ_3" name= "choice3">No<br>
+	<input type = "radio" value = "eatingQ_3" name= "choice3">Not enough information<br><br>
+	Does the client feel embarrassed by how much he/she/they is/are eating?
+	<br><input type = "radio" value = "eatingQ_4" name= "choice4">Yes<br>
+	<input type = "radio" value = "eatingQ_4" name= "choice4">No<br>
+	<input type = "radio" value = "eatingQ_4" name= "choice4">Not enough information<br><br>
+	Does the client have an abnormal diet structure? (E.g. heavily relying on supplements, eating inedible substances)
+	<br><input type = "radio" value = "eatingQ_5" name= "choice5">Yes<br>
+	<input type = "radio" value = "eatingQ_5" name= "choice5">No<br>
+	<input type = "radio" value = "eatingQ_5" name= "choice5">Not enough information<br><br>
+	Does the client regurgitate while eating?
+	<br><input type = "radio" value = "eatingQ_6" name= "choice6">Yes<br>
+	<input type = "radio" value = "eatingQ_6" name= "choice6">No<br>
+	<input type = "radio" value = "eatingQ_6" name= "choice6">Not enough information<br>
+</div>
+
+<div id="feeling_Q" class="question" style="display:none;">
+	The client experiences feelings of: (choose more than one if necessary)<br>
+	<input type="checkbox" value="feelingQ_1">  sadness, emptiness, distress, or hopelessness<br>
+	<input type="checkbox" value="feelingQ_1"> exitement, pleasure, or gratification<br>
+	<input type="checkbox" value="feelingQ_1"> fear<br>
+	<input type="checkbox" value="feelingQ_1"> nervousness, anxiousness, stress, or frustration<br><br>
+
+	Does the client experience mood instability? <br>
+	<input type = "radio" value="feelingQ_2" name= "choice">Yes<br>
+	<input type = "radio" value="feelingQ_2" name= "choice">No<br>
+	<input type = "radio" value="feelingQ_2" name= "choice">Not enough information<br><br>
+
+	Does the client show a patteren of irritable or angry mood? <br>
+	<input type = "radio" value="feelingQ_3" name= "choice2">Yes<br>
+	<input type = "radio" value="feelingQ_3" name= "choice2">No<br>
+	<input type = "radio" value="feelingQ_3" name= "choice2">Not enough information<br><br>
+
+	Is the client excessively self-conscious? (E.g. worthlessness, guilt, gender incongruence) <br>
+	<input type = "radio" value="feelingQ_4" name= "choice3">Yes<br>
+	<input type = "radio" value="feelingQ_4" name= "choice3">No<br>
+	<input type = "radio" value="feelingQ_4" name= "choice3">Not enough information<br><br>
+
+	Does the client experience distress regarding gender identity? (E.g. preference for cross-dressing, preference for activities stereotypically engaged by the other gender, desire to be treated as the other gender) <br>
+	<input type = "radio" value="feelingQ_5" name= "choice4">Yes<br>
+	<input type = "radio" value="feelingQ_5" name= "choice4">No<br>
+	<input type = "radio" value="feelingQ_5" name= "choice4">Not enough information<br><br>
+
+	Does the client show a pattern of irritable or angry mood?<br>
+	<input type = "radio" value="feelingQ_6" name= "choice5">Yes<br>
+	<input type = "radio" value="feelingQ_6" name= "choice5">No<br>
+	<input type = "radio" value="feelingQ_6" name= "choice5">Not enough information<br><br>
+
+	Does the client have abnormal sexual desires? (E.g. sexual arousal from cross-dressing, humiliation, physical or psychological suffering of another person)<br>
+	<input type = "radio" value="feelingQ_7" name= "choice6">Yes<br>
+	<input type = "radio" value="feelingQ_7" name= "choice6">No<br>
+	<input type = "radio" value="feelingQ_7" name= "choice6">Not enough information<br><br>
+
+	Does the client experience absent or reduced excitement, interest, or thoughts in regards to sexual activities?<br>
+	<input type = "radio" value="feelingQ_8" name= "choice7">Yes<br>
+	<input type = "radio" value="feelingQ_8" name= "choice7">No<br>
+	<input type = "radio" value="feelingQ_8" name= "choice7">Not enough information<br>
+</div>
+
+<div id="iho_Q" class="question" style="display:none;">
+	The client has behavior with intention to harm others such as:<br>
+	<input type="checkbox" value="ihoQ_1"> violation of others’ rights (E.g. robbery, exploitation, disregard of others’ safety, observing an unsuspecting person who is naked)<br>
+	<input type="checkbox" value="ihoQ_1"> physical violence<br>
+	<input type="checkbox" value="ihoQ_1"> verbal violence<br><br>
+
+	Does the client feel pleasure or fascination from setting fire? <br>
+	<input type = "radio" value="ihoQ_2" name= "choice">Yes<br>
+	<input type = "radio" value="ihoQ_2" name= "choice">No<br>
+	<input type = "radio" value="ihoQ_2" name= "choice">Not enough information<br>
+</div>
+
+<div id="impulse_Q" class="question" style="display:none;">
+	Does the client encounter any difficulties with impulse control? (E.g. stealing and deception without obvious external rewards, harming others or oneself, binge eating, substance abuse)<br>
+	<input type = "radio" value = "impulseQ_1" name= "choice">Yes<br>
+	<input type = "radio" value = "impulseQ_1" name= "choice">No<br>
+	<input type = "radio" value = "impulseQ_1" name= "choice">Not enough information<br>
+</div>
+
+<div id="judgment_Q" class="question" style="display:none;">
+	Does the client encounter any difficulties in making decisions? (E.g. life decisions, decisions regarding well-being of self or others)
+	<br><input type = "radio" value = "judgmentQ_1" name= "choice">Yes<br>
+	<input type = "radio" value = "judgmentQ_1" name= "choice">No<br>
+	<input type = "radio" value = "judgmentQ_1" name= "choice">Not enough information<br><br>
+
+	Does the client choose to oppose authorities or rules? (*Note: for children and adolescents, authorities can be adults)
+	<br><input type = "radio" value = "judgmentQ_2" name= "choice2">Yes<br>
+	<input type = "radio" value = "judgmentQ_2" name= "choice2">No<br>
+	<input type = "radio" value = "judgmentQ_2" name= "choice2">Not enough information<br>
+</div>
+
+<div id="motor_Q" class="question" style="display:none;">
+	The client experiences: (choose more than one if necessary)
+	<br><input type="checkbox" value = "motorQ_1">excessive movement (E.g. vocal tics, psychomotor agitation, periods of inexhaustibility)<br>
+	<input type="checkbox" value = "motorQ_1">lack of movement (E.g. psychomotor retardation, depressed reflexes, stupor)<br>
+	<input type="checkbox" value = "motorQ_1">any disorganized, catatonic, or uncoordinated behavior
+
+</div>
+
+<div id="orientation_Q" class="question" style="display:none;">
+	Is the client aware of time, place, and/or identity?
+	<br><input type = "radio" value = "orientationQ_1" name= "choice">Yes<br>
+	<input type = "radio" value = "orientationQ_1" name= "choice">No<br>
+	<input type = "radio" value = "orientationQ_1" name= "choice">Not enough information<br>
+</div>
+
+<div id="self-concept_Q" class="question" style="display:none;">
+	The client has encountered difficulties in:<br>
+	<input type="checkbox" value = "selfconceptQ_1">  disruption of identity (E.g. two or more different personality states, unstable self-image)<br>
+	<input type="checkbox" value = "selfconceptQ_1"> establishment of self-image while socializing with others (E.g. need for excessive admiration, difficulties with expressing disagreement with others)<br>
+	<input type="checkbox" value = "selfconceptQ_1"> acquisition of confidence<br><br>
+
+	Is the client’s self-image heavily influenced by appearance, body shape, or weight? <br>
+	<input type = "radio" value = "selfconceptQ_2" name= "choice">Yes<br>
+	<input type = "radio" value = "selfconceptQ_2" name= "choice">No<br>
+	<input type = "radio" value = "selfconceptQ_2" name= "choice">Not enough information<br><br>
+
+	Is the client excessively confident about oneself? (E.g. high self-esteem, arrogance, self-importance)<br>
+	<input type = "radio" value = "selfconceptQ_3" name= "choice2">Yes<br>
+	<input type = "radio" value = "selfconceptQ_3" name= "choice2">No<br>
+	<input type = "radio" value = "selfconceptQ_3" name= "choice2">Not enough information<br><br>
+
+	Does the client have an exaggerated expression or emotion?<br>
+	<input type = "radio" value = "selfconceptQ_4" name= "choice3">Yes<br>
+	<input type = "radio" value = "selfconceptQ_4" name= "choice3">No<br>
+	<input type = "radio" value = "selfconceptQ_4" name= "choice3">Not enough information<br>
+</div>
+
+<div id="self-harm_Q" class="question" style="display:none;">
+	Does the client have any behaviors that cause self-injury?<br>
+	<input type = "radio" value = "selfharmQ_1" name= "choice">Yes<br>
+	<input type = "radio" value = "selfharmQ_1" name= "choice">No<br>
+	<input type = "radio" value = "selfharmQ_1" name= "choice">Not enough information<br>
+</div>
+
+<div id="sensory_Q" class="question" style="display:none;">
+	Is the client influenced by any sensory impairments?
+	<br><input type = "radio" value = "sensoryQ_1" name= "choice">Yes<br>
+	<input type = "radio" value = "sensoryQ_1" name= "choice">No<br>
+	<input type = "radio" value = "sensoryQ_1" name= "choice">Not enough information<br>
+</div>
+
+<div id="sleep_Q" class="question" style="display:none;">
+	Does the client have fatigue, drowsiness, or coma?
+	<br><input type = "radio" value = "sleepQ_1" name= "choice">Yes<br>
+	<input type = "radio" value = "sleepQ_1" name= "choice">No<br>
+	<input type = "radio" value = "sleepQ_1" name= "choice">Not enough information<br><br>
+	Does the client feel disturbed while sleeping? (E.g. awakening from sleep, snoring, breathing pauses during sleep, having nightmares)
+	<br><input type = "radio" value = "sleepQ_2"name= "choice2">Yes<br>
+	<input type = "radio" value = "sleepQ_2" name= "choice2">No<br>
+	<input type = "radio" value = "sleepQ_2" name= "choice2">Not enough information<br><br>
+	Does the client experience irrepressible need to sleep? (hypersomnia)
+	<br><input type = "radio" value = "sleepQ_3"name= "choice3">Yes<br>
+	<input type = "radio" value = "sleepQ_3" name= "choice3">No<br>
+	<input type = "radio" value = "sleepQ_3" name= "choice3">Not enough information<br><br>
+	Does the client have trouble falling asleep? (E.g. insomnia, disturbing dreams)
+	<br><input type = "radio" value = "sleepQ_4"name= "choice4">Yes<br>
+	<input type = "radio" value = "sleepQ_4" name= "choice4">No<br>
+	<input type = "radio" value = "sleepQ_4" name= "choice4">Not enough information<br><br>
+	Does the client have decreased need for sleep?
+	<br><input type = "radio" value = "sleepQ_5" name= "choice5">Yes<br>
+	<input type = "radio" value = "sleepQ_5" name= "choice5">No<br>
+	<input type = "radio" value = "sleepQ_5" name= "choice5">Not enough information<br><br>
+	Does the client sleepwalk or show any other complex motor or vocal behaviors while sleeping?
+	<br><input type = "radio" value = "sleepQ_6" name= "choice6">Yes<br>
+	<input type = "radio" value = "sleepQ_6" name= "choice6">No<br>
+	<input type = "radio" value = "sleepQ_6" name= "choice6">Not enough information<br><br>
+	Does the client have abnormal intervals for REM?
+	<br><input type = "radio" value = "sleepQ_7" name= "choice7">Yes<br>
+	<input type = "radio" value = "sleepQ_7" name= "choice7">No<br>
+	<input type = "radio" value = "sleepQ_7" name= "choice7">Not enough information<br>
+</div>
+
+<div id="somatic_Q" class="question" style="display:none;">
+	In which of the following body parts does the client have discomfort with? (choose more than one if necessary)<br>
+	<input type="checkbox" value="somaticQ_1">head<br>
+	<input type="checkbox" value="somaticQ_1">mouth<br>
+	<input type="checkbox" value="somaticQ_1">face<br>
+	<input type="checkbox" value="somaticQ_1">hand<br>
+	<input type="checkbox" value="somaticQ_1">ear<br>
+	<input type="checkbox" value="somaticQ_1">stomach<br>
+	<input type="checkbox" value="somaticQ_1">muscle<br>
+	<input type="checkbox" value="somaticQ_1">heart<br>
+	<input type="checkbox" value="somaticQ_1">pupil<br>
+	<input type="checkbox" value="somaticQ_1">urine<br>
+	<input type="checkbox" value="somaticQ_1">body (E.g. fever, chills, coma, seizures, tremors)<br><br>
+	Does the client have any impairments in cognitive mechanism that might be caused by brain injury?
+	<br><input type = "radio"  value="somaticQ_2" name= "choice">Yes<br>
+	<input type = "radio" value="somaticQ_2" name= "choice">No<br>
+	<input type = "radio" value="somaticQ_2" name= "choice">Not enough information<br><br>
+	Does the client experience significant weight changes? (E.g. weight loss caused by purging or restriction of energy intake)
+	<br><input type = "radio" value="somaticQ_3" name= "choice2">Yes<br>
+	<input type = "radio" value="somaticQ_3" name= "choice2">No<br>
+	<input type = "radio" value="somaticQ_3" name= "choice2">Not enough information<br><br>
+	Does the client have an abnormal appetite compared to others? (E.g. increased appetite, decreased appetite)
+	<br><input type = "radio" value="somaticQ_4" name= "choice3">Yes<br>
+	<input type = "radio" value="somaticQ_4" name= "choice3">No<br>
+	<input type = "radio" value="somaticQ_4" name= "choice3">Not enough information<br><br>
+	Does the client encounter any difficulties in sexual functioning? (E.g. difficulties in obtaining erection in sexual activity, delay in ejaculation, reduced intensity of orgasmic sensations)
+	<br><input type = "radio" value="somaticQ_5" name= "choice4">Yes<br>
+	<input type = "radio" value="somaticQ_5" name= "choice4">No<br>
+	<input type = "radio" value="somaticQ_5" name= "choice4">Not enough information<br><br>
+	Is the client’s social activities limited by any physical impairments?
+	<br><input type = "radio" value="somaticQ_6" name= "choice5">Yes<br>
+	<input type = "radio" value="somaticQ_6" name= "choice5">No<br>
+	<input type = "radio" value="somaticQ_6" name= "choice5">Not enough information<br>
+</div>
+
+<div id="substance_Q" class="question" style="display:none;">
+	Which of the following substances the client has taken? (choose more than one if necessary)<br>
+	<input type="checkbox" value = "substanceQ_1" name = "choice">Cannabis<br>
+	<input type="checkbox" value = "substanceQ_1" name = "choice">Phencyclidine<br>
+	<input type="checkbox" value = "substanceQ_1" name = "choice">Sedative,hypnotic, or anxiolytic substance<br>
+	<input type="checkbox" value = "substanceQ_1" name = "choice">Alcohol<br>
+	<input type="checkbox" value = "substanceQ_1" name = "choice">Opioid<br>
+	<input type="checkbox" value = "substanceQ_1" name = "choice">Caffeine<br>
+	<input type="checkbox" value = "substanceQ_1" name = "choice">Hallucinogen<br>
+	<input type="checkbox" value = "substanceQ_1" name = "choice">Tobacco<br>
+	<input type="checkbox" value = "substanceQ_1" name = "choice">Inhalants<br>
+	<input type="checkbox" value = "substanceQ_1" name = "choice">Stimulants(in general)<br>
+	<input type="checkbox" value = "substanceQ_1" name = "choice">Others<br><br>
+
+	As a result of substance use, the client experienced or showed signs of : (choose more than one if necessary)<br>
+	<input type="checkbox" value = "substanceQ_2" name = "choice2">significant behavioral or psychological changes  (E.g. impaired motor coordination, anxiety,euphoria, inappropriate sexual behavior)<br>
+	<input type="checkbox" value = "substanceQ_2" name = "choice2"> impairments or high potential of impairments in physical health <br>
+	<input type="checkbox" value = "substanceQ_2" name = "choice2"> impairments in ability to fulfill his/her/their roles at work, school, or home <br>
+	<input type="checkbox" value = "substanceQ_2" name = "choice2"> anxiety or fear <br>
+	<input type="checkbox" value = "substanceQ_2" name = "choice2"> giving up of any social, occupational, or recreational activities<br><br>
+
+	The client experienced ___ in the process of withdrawing from substance use: (choose more than one if necessary)<br>
+	<input type="checkbox" value = "substanceQ_3" name = "choice3"> anxiety or fear <br>
+	<input type="checkbox" value = "substanceQ_3" name = "choice3"> difficulties <br><br>
+
+	The client shows addictive behavior related to substance use such as: (choose more than one if necessary)<br>
+	<input type="checkbox" value = "substanceQ_4" name = "choice4">spending a great deal of time in the process of obtaining substance, using substance, or recovering from its effects<br>
+	<input type="checkbox" value = "substanceQ_4" name = "choice4"> continuing to use the substance even his/her/their interpersonal relationships have been damaged as a result of  substance intoxication<br>
+	<input type="checkbox" value = "substanceQ_4" name = "choice4"> addiction to certain substances ( E.g. strong desire to use the substance, diminished effect with continued use of same amount of the substance, unsuccessful efforts to control the substance use)<br><br>
+</div>
+
+<div id="thought_Q" class="question" style="display:none;">
+	Does the client encounter any difficulties in concentrating? 
+	<br><input type = "radio" value="thoughtQ_1" name= "choice">Yes<br>
+	<input type = "radio" value="thoughtQ_1" name= "choice">No<br>
+	<input type = "radio" value="thoughtQ_1" name= "choice">Not enough information<br><br>
+
+	Does the client demonstrate any signs of overthinking? (E.g. flight of ideas, over conscientiousness)
+	<br><input type = "radio" value="thoughtQ_2" name= "choice2">Yes<br>
+	<input type = "radio" value="thoughtQ_2" name= "choice2">No<br>
+	<input type = "radio" value="thoughtQ_2" name= "choice2">Not enough information<br><br>
+
+	Does the client have any abnormal thoughts or perceptions about money?  (E.g. hoarding money for future catastrophes)
+	<br><input type = "radio" value="thoughtQ_3" name= "choice3">Yes<br>
+	<input type = "radio" value="thoughtQ_3" name= "choice3">No<br>
+	<input type = "radio" value="thoughtQ_3" name= "choice3">Not enough information<br><br>
+
+	Does the client have too much negative thought compared to other people? (E.g.  holding negative beliefs, bearing grudges persistently)
+	<br><input type = "radio" value="thoughtQ_4" name= "choice4">Yes<br>
+	<input type = "radio" value="thoughtQ_4" name= "choice4">No<br>
+	<input type = "radio" value="thoughtQ_4" name= "choice4">Not enough information<br><br>
+
+	Is the client preoccupied with concerns about physical health? (E.g. persistent thoughts about acquiring a serious illness, recurrent thoughts of death)
+	<br><input type = "radio" value="thoughtQ_5" value="thoughtQ_2" name= "choice5">Yes<br>
+	<input type = "radio" value="thoughtQ_5" name= "choice5">No<br>
+	<input type = "radio" value="thoughtQ_5" name= "choice5">Not enough information<br><br>
+
+	Does the client hold suspicious thoughts toward surroundings and other people? (E.g. doubts about the loyalty of friends, reads hidden demeaning meanings into benign remarks)
+	<br><input type = "radio" value="thoughtQ_6" name= "choice6">Yes<br>
+	<input type = "radio" value="thoughtQ_6" name= "choice6">No<br>
+	<input type = "radio" value="thoughtQ_6" name= "choice6">Not enough information<br><br>
+
+	Does the client encounter any difficulties in recalling or accepting the traumatic events occurred in the past? (E.g. inability to remember important aspect of the traumatic events, flashbacks)
+	<br><input type = "radio" value="thoughtQ_7" name= "choice7">Yes<br>
+	<input type = "radio" value="thoughtQ_7" name= "choice7">No<br>
+	<input type = "radio" value="thoughtQ_7" name= "choice7">Not enough information<br>
+</div>
+
+<div class = "box">
+	<input type="button" name="end" value="I'm done!" />
+
+</div>
+<script>
+
+$(window).on("load", function() {
+    $('.domain').click(function() {
+    	$('.question').slideUp(1);
+    	$('.domain').css("color", "#2D8896");
+    	$('.categories').slideUp(1);
+        $('#'+ (this).id + "_cat").slideDown(1);
+        $('#' + (this).id).css("color", "white");
+        $('.category').css("background-color", "#ecf7f9");  
+    })
+    $('.category').click(function() {
+    	$('.question').slideUp(1);
+    	$('.category').css("background-color", "#ecf7f9")
+    	$('#' + (this).id + "_Q").slideDown(1);
+    	$('#' + (this).id).css("background-color", "#c6e9ee");
+    })
+
+    $('input[name="end"]').click(function(){
+    	console.log("I'm done!");
+    })
+
+	$('input[value="adlQ_1"], input[value="adlQ_2"]').click(function(){
+		if($('input[value=adlQ_1]:checked').length > 0 && $('input[value=adlQ_2]:checked').length > 0){
+			$('input[value="adl_check"]').prop('checked', true);
+		}
+		else{
+			$('input[value="adl_check"]').prop('checked', false);
+		}
+	})
+
+	$('input[value="attachmentQ_1"], input[value="attachmentQ_2"], input[value="attachmentQ_3"], input[value="attachmentQ_4"], input[value="attachmentQ_5"], input[value="attachmentQ_6"]').click(function(){
+		if($('input[value=attachmentQ_1]:checked').length > 0 && $('input[value=attachmentQ_2]:checked').length > 0 && $('input[value=attachmentQ_3]:checked').length > 0 && $('input[value=attachmentQ_4]:checked').length > 0 && $('input[value=attachmentQ_5]:checked').length > 0 && $('input[value=attachmentQ_6]:checked').length > 0){
+				$('input[value="attachment_check"]').prop('checked', true);
+			}
+			else{
+				$('input[value="attachment_check"]').prop('checked', false);
+			}
+	})
+
+	$('input[value="attentionQ_1"]').click(function(){
+		if($('input[value=attentionQ_1]:checked').length > 0){
+			$('input[value="attention_check"]').prop('checked', true);
+		}
+	})
+
+
+	$('input[value="behaviorQ_1"], input[value="behaviorQ_2"], input[value="behaviorQ_3"], input[value="behaviorQ_4"], input[value="behaviorQ_5"], input[value="behaviorQ_6"], input[value="behaviorQ_7"], input[value="behaviorQ_8"]').click(function(){
+		if($('input[value=behaviorQ_1]:checked').length > 0 && $('input[value=behaviorQ_2]:checked').length > 0 && $('input[value=behaviorQ_3]:checked').length > 0 && $('input[value=behaviorQ_4]:checked').length > 0 && $('input[value=behaviorQ_5]:checked').length > 0 && $('input[value=behaviorQ_6]:checked').length > 0 && $('input[value=behaviorQ_7]:checked').length > 0 && $('input[value=behaviorQ_8]:checked').length > 0){
+				$('input[value="behavior_check"]').prop('checked', true);
+			}
+	})
+
+	$('input[value="cogdevQ_1"]').click(function(){
+		if($('input[value=cogdevQ_1]:checked').length > 0){
+			$('input[value="cogdev_check"]').prop('checked', true);
+		}
+		else{
+			$('input[value="cogdev_check"]').prop('checked', false);
+		}
+	})
+
+	$('input[value="communicationQ_1"], input[value="communicationQ_2"], input[value="communicationQ_3"], input[value="communicationQ_4"], input[value="communicationQ_5"]').click(function(){
+
+		if($('input[value=communicationQ_1]:checked').length > 0 && $('input[value=communicationQ_2]:checked').length > 0 && $('input[value=communicationQ_3]:checked').length > 0 && $('input[value=communicationQ_4]:checked').length > 0 && $('input[value=communicationQ_5]:checked').length > 0){
+				$('input[value="communication_check"]').prop('checked', true);
+		}
+	})
+
+	$('input[value="delhalQ_1"], input[value="delhalQ_2"]').click(function(){
+		if($('input[value=delhalQ_1]:checked').length > 0 && $('input[value=delhalQ_2]:checked').length > 0){
+			$('input[value="delhal_check"]').prop('checked', true);
+		}	
+	})
+
+	$('input[value="detachmentQ_1"], input[value="detachmentQ_2"], input[value="detachmentQ_3"]').click(function(){
+		if($('input[value=detachmentQ_1]:checked').length > 0 && $('input[value=detachmentQ_2]:checked').length > 0 && $('input[value=detachmentQ_3]:checked').length > 0){
+				$('input[value="detachment_check"]').prop('checked', true);
+			}
+		else{
+				$('input[value="detachment_check"]').prop('checked', false);
+		}
+	})
+
+	$('input[value="eatingQ_1"], input[value="eatingQ_2"], input[value="eatingQ_3"], input[value="eatingQ_4"], input[value="eatingQ_5"], input[value="eatingQ_6"]').click(function(){
+		if($('input[value=eatingQ_1]:checked').length > 0 && $('input[value=eatingQ_2]:checked').length > 0 && $('input[value=eatingQ_3]:checked').length > 0 && $('input[value=eatingQ_4]:checked').length > 0 && $('input[value=eatingQ_5]:checked').length > 0 && $('input[value=eatingQ_6]:checked').length > 0){
+				console.log("YES");
+				$('input[value="eating_check"]').prop('checked', true);
+			}
+			else{
+				$('input[value="eating_check"]').prop('checked', false);
+			}
+	})
+
+	$('input[value="feelingQ_1"], input[value="feelingQ_2"], input[value="feelingQ_3"], input[value="feelingQ_4"], input[value="feelingQ_5"], input[value="feelingQ_6"], input[value="feelingQ_7"], input[value="feelingQ_8"]').click(function(){
+		if($('input[value=feelingQ_1]:checked').length > 0 && $('input[value=feelingQ_2]:checked').length > 0 && $('input[value=feelingQ_3]:checked').length > 0 && $('input[value=feelingQ_4]:checked').length > 0 && $('input[value=feelingQ_5]:checked').length > 0 && $('input[value=feelingQ_6]:checked').length > 0 && $('input[value=feelingQ_7]:checked').length > 0 && $('input[value=feelingQ_8]:checked').length > 0){
+				$('input[value="feeling_check"]').prop('checked', true);
+			}
+		else{
+			$('input[value="feeling_check"]').prop('checked', false);
+		}
+	})
+
+	$('input[value="ihoQ_1"], input[value="ihoQ_2"]').click(function(){
+		if($('input[value=ihoQ_1]:checked').length > 0 && $('input[value=ihoQ_2]:checked').length > 0){
+			$('input[value="iho_check"]').prop('checked', true);
+		}
+		else{
+			$('input[value="iho_check"]').prop('checked', false);
+		}
+	})
+
+	$('input[value="impulseQ_1"]').click(function(){
+		if($('input[value=impulseQ_1]:checked').length > 0){
+			$('input[value="impulse_check"]').prop('checked', true);
+		}
+	})
+
+	$('input[value="judgmentQ_1"], input[value="judgmentQ_2"]').click(function(){
+		if($('input[value=judgmentQ_1]:checked').length > 0 && $('input[value=judgmentQ_2]:checked').length > 0){
+			$('input[value="judgment_check"]').prop('checked', true);
+		}
+		else{
+			$('input[value="judgment_check"]').prop('checked', false);
+		}
+	})
+
+	$('input[value="motorQ_1"]').click(function(){
+		if($('input[value=motorQ_1]:checked').length > 0){
+			$('input[value="motor_check"]').prop('checked', true);
+		}
+		else{
+			$('input[value="motor_check"]').prop('checked', false);
+		}
+	})
+
+	$('input[value="orientationQ_1"]').click(function(){
+		if($('input[value=orientationQ_1]:checked').length > 0){
+			$('input[value="orientation_check"]').prop('checked', true);
+		}
+	})
+
+	$('input[value="selfconceptQ_1"], input[value="selfconceptQ_2"], input[value="selfconceptQ_3"], input[value="selfconceptQ_4"]').click(function(){
+		if($('input[value=selfconceptQ_1]:checked').length > 0 && $('input[value=selfconceptQ_2]:checked').length > 0 && $('input[value=selfconceptQ_3]:checked').length > 0 && $('input[value=selfconceptQ_4]:checked').length > 0){
+				$('input[value="selfconcept_check"]').prop('checked', true);
+			}
+		else{
+				$('input[value="selfconcept_check"]').prop('checked', false);
+		}
+	})
+
+	$('input[value="selfharmQ_1"]').click(function(){
+		if($('input[value=selfharmQ_1]:checked').length > 0){
+				$('input[value="selfharm_check"]').prop('checked', true);
+		}
+	})
+
+	$('input[value="sensoryQ_1"]').click(function(){
+		if($('input[value=sensoryQ_1]:checked').length > 0){
+			$('input[value="sensory_check"]').prop('checked', true);
+		}
+	})
+
+	$('input[value="sleepQ_1"], input[value="sleepQ_2"], input[value="sleepQ_3"], input[value="sleepQ_4"], input[value="sleepQ_5"], input[value="sleepQ_6"], input[value="sleepQ_7"]').click(function(){
+		if($('input[value=sleepQ_1]:checked').length > 0 && $('input[value=sleepQ_2]:checked').length > 0 && $('input[value=sleepQ_3]:checked').length > 0 && $('input[value=sleepQ_4]:checked').length > 0 && $('input[value=sleepQ_5]:checked').length > 0 && $('input[value=sleepQ_6]:checked').length > 0 && $('input[value=sleepQ_7]:checked').length > 0){
+				$('input[value="sleep_check"]').prop('checked', true);
+			}
+	})
+
+	$('input[value="somaticQ_1"], input[value="somaticQ_2"], input[value="somaticQ_3"], input[value="somaticQ_4"], input[value="somaticQ_5"], input[value="somaticQ_6"]').click(function(){
+		if($('input[value=somaticQ_1]:checked').length > 0 && $('input[value=somaticQ_2]:checked').length > 0 && $('input[value=somaticQ_3]:checked').length > 0 && $('input[value=somaticQ_4]:checked').length > 0 && $('input[value=somaticQ_5]:checked').length > 0 && $('input[value=somaticQ_6]:checked').length > 0){
+				$('input[value="somatic_check"]').prop('checked', true);
+			}
+			else{
+				$('input[value="somatic_check"]').prop('checked', false);
+			}
+	})
+
+	$('input[value="substanceQ_1"], input[value="substanceQ_2"], input[value="substanceQ_3"], input[value="substanceQ_4"]').click(function(){
+		if($('input[value=substanceQ_1]:checked').length > 0 && $('input[value=substanceQ_2]:checked').length > 0 && $('input[value=substanceQ_3]:checked').length > 0 && $('input[value=substanceQ_4]:checked').length > 0){
+				$('input[value="substance_check"]').prop('checked', true);
+			}
+		else{
+				$('input[value="substance_check"]').prop('checked', false);
+		}
+	})
+
+	$('input[value="thoughtQ_1"], input[value="thoughtQ_2"], input[value="thoughtQ_3"], input[value="thoughtQ_4"], input[value="thoughtQ_5"], input[value="thoughtQ_6"], input[value="thoughtQ_7"]').click(function(){
+		if($('input[value=thoughtQ_1]:checked').length > 0 && $('input[value=thoughtQ_2]:checked').length > 0 && $('input[value=thoughtQ_3]:checked').length > 0 && $('input[value=thoughtQ_4]:checked').length > 0 && $('input[value=thoughtQ_5]:checked').length > 0 && $('input[value=thoughtQ_6]:checked').length > 0 && $('input[value=thoughtQ_7]:checked').length > 0){
+				$('input[value="thought_check"]').prop('checked', true);
+		}
+		else{
+			$('input[value="thought_check"]').prop('checked', false);
+		}
+	})	
+});
+	
+
+
+</script>
+</body>
+</html>
