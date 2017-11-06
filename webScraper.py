@@ -54,7 +54,7 @@ def main():
         html = html.text
         soup = BeautifulSoup(html, "html5lib")
 
-        parse(soup, chapter, file)
+        parse(soup, str(number), file)
 
     file.close()
 
