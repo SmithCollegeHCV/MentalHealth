@@ -16,16 +16,15 @@ file.close()
 
 nlp = spacy.load('en')
 for i in range(len(a)):
-    element = a[i]
-    sentences = tokenizer.tokenize(element)
-    subjects =[]
+    chap = a[i]
+    chapSents = []
+    sentences = tokenizer.tokenize(chap)
     for sentence in sentences:
         line = TextBlob(sentence)
-        sentiments.append(line.sentiment)
-        sent = sentence
-        doc=nlp(sent)
-        sub_toks = [tok for tok in doc if (tok.dep_ == "nsubj") ]
-        if len(sub_toks) > 0:
-            subjects.append(sub_toks)
-    print("Chapter ", names[i], " = ", subjects)
-    print("Chapter ", names[i], " sentiments = ", sentiments)
+        chapSents.append(line.sentiment.subjectivity)
+    sentiments.append(chapSents)
+
+print(a[2])
+print()
+print(sentiments[2])
+print()
