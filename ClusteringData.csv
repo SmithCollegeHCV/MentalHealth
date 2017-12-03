@@ -1,0 +1,88 @@
+Cluster,Top Words,Chapter,Diagnosis,Subjects
+3,"[b'cultures', b's', b'individual', b'background', b'account', b'taken']",1,'Intellectual Disability (Intellectual Developmental Disorder)',"[disability, individual]"
+6,"[b'african american',  b'rates']",1,'Autism Spectrum Disorder',"[differences, individuals, factors, disorder]"
+6,"[b'african american',  b'rates']",1,'Attention-Deficit/Hyperactivity Disorder',"[rates, rates, practices]"
+5,"[b'languages', b'cultures', b'individual', b'speak', b'ideas', b'e.g.']",1,'Specific Learning Disorder',"[disorder, requirements, symptom, that, feature, assessment, source, factors, assessment, assessment, individual]"
+3,"[b'cultures', b's', b'individual', b'background', b'account', b'taken']",1,'Developmental Coordination Disorder',"[disorder, activities, differences, child, he]"
+3,"[b'cultures', b's', b'individual', b'background', b'account', b'taken']",1,'Stereotypic Movement Disorder',"[disorder, attitudes, tolerance]"
+3,"[b'cultures', b's', b'individual', b'background', b'account', b'taken']",1,'Tic Disorders',"[disorders, race]"
+3,"[b'cultures', b's', b'individual', b'background', b'account', b'taken']",2,'Delusional Disorder',"[individual, content]"
+3,"[b'cultures', b's', b'individual', b'background', b'account', b'taken']",2,'Brief Psychotic Disorder',"[It, individual, these, beliefs]"
+5,"[b'languages', b'cultures', b'individual', b'speak', b'ideas', b'e.g.']",2,'Schizoaffective Disorder',"[individual, that, hallucinations, assessment, which, that, distress, that]"
+5,"[b'languages', b'cultures', b'individual', b'speak', b'ideas', b'e.g.']",2,'Schizophrenia',"[individual, that, that]"
+6,"[b'african american',  b'rates']",3,'Bipolar I Disorder',"[information, I, explanation, I, disorder]"
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",3,'Bipolar and Related Disorder Due to Another Medical Condition',"[differences, rates]"
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",4,'Major Depressive Disorder',"[Surveys, presence, findings, they, clinicians, majority, symptoms]"
+6,"[b'african american',  b'rates']",4,'Premenstrual Dysphoric Disorder',"[disorder, It, rates]"
+4,"[b'behaviors', b'personality', b'personality', b'consider', b'disorder', b""'antisocial""]",5,'Separation Anxiety Disorder',"[offspring, It, cultures]"
+5,"[b'languages', b'cultures', b'individual', b'speak', b'ideas', b'e.g.']",5,'Selective Mutism',"[Children, who, comprehension, refusal]"
+6,"[b'african american',  b'rates']",5,'Specific Phobia',"[Asians, countries]"
+6,"[b'african american',  b'rates']",5,'Social Anxiety Disorder (Social Phobia)',"[individual, people, they, that, presentations, rates, societies]"
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",5,'Panic Disorder',"[rate, expectations, individual, who, trÌ_ng, ‰ÛÏ, that, nervios, presentations, other, syndromes, syndromes, Clarification, worries, samples]"
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",5,'Panic Attack Specifier',"[interpretations, symptoms, Frequency, syndromes, Examples, trÌ_ng, nervios, that, presentations, other, expectations, syndromes, Clarification, Glossary]"
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",5,'Generalized Anxiety Disorder',"[symptoms, symptoms, difference, topic, It, worries]"
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",6,'Obsessive-Compulsive Disorder',"[OCD, variation, factors]"
+6,"[b'african american',  b'rates']",6,'Body Dysmorphic Disorder',"[It, disorder, values, kyofusho, phobia]"
+7,"[b'united states', b'countries', b'attachment', b'united', b'disorder']",6,'Hoarding Disorder',"[data, hoarding]"
+1,"[b'substance', b'using', b'using', b'opioid', b'cultures', b'regions']",6,'Trichotillomania (Hair-Pulling Disorder)',[Trichotillomania]
+7,"[b'united states', b'countries', b'attachment', b'united', b'disorder']",7,'Reactive Attachment Disorder',[]
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",7,'Posttraumatic Stress Disorder',"[risk, risk, expression, syndromes, that, symptoms, evaluation, Formulation]"
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",7,'Acute Stress Disorder',"[profile, syndromes, groups, symptoms]"
+3,"[b'cultures', b's', b'individual', b'background', b'account', b'taken']",7,'Adjustment Disorders',"[response, distress, nature]"
+5,"[b'languages', b'cultures', b'individual', b'speak', b'ideas', b'e.g.']",8,'Dissociative Identity Disorder',"[Individuals, symptoms, possession, identities, Acculturation, identities, former, that]"
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",8,'Dissociative Amnesia',"[East, precipitants]"
+7,"[b'united states', b'countries', b'attachment', b'united', b'disorder']",8,'Depersonalization/Derealization Disorder',"[experiences, that, who]"
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",9,'Somatic Symptom Disorder',"[symptoms, relationship, relationship, description, symptoms, that, models]"
+5,"[b'languages', b'cultures', b'individual', b'speak', b'ideas', b'e.g.']",9,'Illness Anxiety Disorder',"[ideas, prevalence]"
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",9,'Conversion Disorder (Functional Neurological Symptom Disorder)',[Changes]
+5,"[b'languages', b'cultures', b'individual', b'speak', b'ideas', b'e.g.']",9,'Psychological Factors Affecting Other Medical Conditions',"[differences, that, practices, they]"
+1,"[b'substance', b'using', b'using', b'opioid', b'cultures', b'regions']",10,'Pica',[behavior]
+7,"[b'united states', b'countries', b'attachment', b'united', b'disorder']",10,'Avoidant/Restrictive Food Intake Disorder',"[disorder, avoidance]"
+7,"[b'united states', b'countries', b'attachment', b'united', b'disorder']",10,'Anorexia Nervosa',"[nervosa, evidence, nervosa, incidence, prevalence, clinicians, utilization, rates, presentation, absence, ‰Ûù, presentations]"
+7,"[b'united states', b'countries', b'attachment', b'united', b'disorder']",10,'Bulimia Nervosa',"[individuals, disorder]"
+7,"[b'united states', b'countries', b'attachment', b'united', b'disorder']",10,'Binge-Eating Disorder',"[disorder, prevalence]"
+6,"[b'african american',  b'rates']",11,'Enuresis',"[rates, training]"
+6,"[b'african american',  b'rates']",12,'Narcolepsy',[]
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",12,'Obstructive Sleep Apnea Hypopnea',"[Individuals, that]"
+6,"[b'african american',  b'rates']",12,'Circadian Rhythm Sleep-Wake Disorders',[Americans]
+3,"[b'cultures', b's', b'individual', b'background', b'account', b'taken']",12,'Nightmare Disorder',"[significance, sensitivity]"
+1,"[b'substance', b'using', b'using', b'opioid', b'cultures', b'regions']",12,'Substance/Medication-Induced Sleep Disorder',[consumption]
+0,"[b'sexual', b'desirable', b'men', b'differences', b'women', b'al']",13,'Delayed Ejaculation',"[Complaints, complaints, variation]"
+0,"[b'sexual', b'desirable', b'men', b'differences', b'women', b'al']",13,'Erectile Disorder',"[It, differences]"
+0,"[b'sexual', b'desirable', b'men', b'differences', b'women', b'al']",13,'Female Orgasmic Disorder',"[degree, that, women, orgasm, prevalence]"
+0,"[b'sexual', b'desirable', b'men', b'differences', b'women', b'al']",13,'Female Sexual Interest/Arousal Disorder',"[rates, levels, possibility, differences, judgment, cultures]"
+7,"[b'united states', b'countries', b'attachment', b'united', b'disorder']",13,'Genito-Pelvic Pain/Penetration Disorder',"[perception, research]"
+0,"[b'sexual', b'desirable', b'men', b'differences', b'women', b'al']",13,'Male Hypoactive Sexual Desire Disorder',"[Lau, Guilt]"
+0,"[b'sexual', b'desirable', b'men', b'differences', b'women', b'al']",13,'Premature (Early) Ejaculation',"[Perception, what, latencies]"
+0,"[b'sexual', b'desirable', b'men', b'differences', b'women', b'al']",13,'Substance/Medication-Induced Sexual Dysfunction',[]
+6,"[b'african american',  b'rates']",14,'Gender Dysphoria',[It]
+6,"[b'african american',  b'rates']",15,'Oppositional Defiant Disorder',"[prevalence, that]"
+6,"[b'african american',  b'rates']",15,'Intermittent Explosive Disorder',[prevalence]
+4,"[b'behaviors', b'personality', b'personality', b'consider', b'disorder', b""'antisocial""]",15,'Conduct Disorder',[behaviors]
+6,"[b'african american',  b'rates']",16,'Alcohol Use Disorder',"[alcohol, %, %, %, %, individuals, that, criteria]"
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",16,'Alcohol Intoxication',"[issues, fraternities, condition, subgroups, others]"
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",16,'Caffeine Withdrawal',"[consumers, who]"
+1,"[b'substance', b'using', b'using', b'opioid', b'cultures', b'regions']",16,'Cannabis Use Disorder',"[Cannabis, Occurrence, rates, It, Acceptance, that, change, disorder]"
+1,"[b'substance', b'using', b'using', b'opioid', b'cultures', b'regions']",16,'Phencyclidine Use Disorder',"[use, those, phencyclidine]"
+6,"[b'african american',  b'rates']",16,'Other Hallucinogen Use Disorder',"[use, race]"
+6,"[b'african american',  b'rates']",16,'Inhalant Use Disorder',"[communities, groups]"
+1,"[b'substance', b'using', b'using', b'opioid', b'cultures', b'regions']",16,'Opioid Use Disorder',"[use, differences, factors, personnel, who]"
+1,"[b'substance', b'using', b'using', b'opioid', b'cultures', b'regions']",16,"'Sedative, Hypnotic, or Anxiolytic Use Disorder'",[which]
+6,"[b'african american',  b'rates']",16,'Stimulant Use Disorder',"[disorders, criteria, use, cardiac, %]"
+6,"[b'african american',  b'rates']",16,'Tobacco Use Disorder',"[Cultures, prevalence, decrease, degree, differences, smokers, smokers, males, this, speed]"
+1,"[b'substance', b'using', b'using', b'opioid', b'cultures', b'regions']",16,'Other (or Unknown) Substance  Use Disorder',[]
+1,"[b'substance', b'using', b'using', b'opioid', b'cultures', b'regions']",16,'Other (or Unknown) Substance Withdrawal',[issues]
+6,"[b'african american',  b'rates']",16,'Gambling Disorder',"[Individuals, rates, populations]"
+5,"[b'languages', b'cultures', b'individual', b'speak', b'ideas', b'e.g.']",17,'Mild Neurocognitive Disorder',"[level, symptoms, who, norms, they]"
+5,"[b'languages', b'cultures', b'individual', b'speak', b'ideas', b'e.g.']",17,'Major or Mild Neurocognitive Disorder Due to Alzheimer‰Ûªs Disease',"[Detection, adults, levels]"
+3,"[b'cultures', b's', b'individual', b'background', b'account', b'taken']",18,'General Personality Disorder',"[Judgments, It, who]"
+4,"[b'behaviors', b'personality', b'personality', b'consider', b'disorder', b""'antisocial""]",18,'Paranoid Personality Disorder',"[Members, behaviors, who, groups]"
+4,"[b'behaviors', b'personality', b'personality', b'consider', b'disorder', b""'antisocial""]",18,'Schizoid Personality Disorder',"[Individuals, ‰ÛÏ, those, who, that]"
+5,"[b'languages', b'cultures', b'individual', b'speak', b'ideas', b'e.g.']",18,'Antisocial Personality Disorder',[characteristics]
+4,"[b'behaviors', b'personality', b'personality', b'consider', b'disorder', b""'antisocial""]",18,'Schizoid Personality Disorder',"[disorder, behavior, it, clinician, behaviors]"
+4,"[b'behaviors', b'personality', b'personality', b'consider', b'disorder', b""'antisocial""]",18,'Borderline Personality Disorder',"[Adolescents, that]"
+4,"[b'behaviors', b'personality', b'personality', b'consider', b'disorder', b""'antisocial""]",18,'Histrionic Personality Disorder',"[Norms, it, they]"
+2,"[b'symptom', b'cultures', b'attacks', b'panic', b'e.g.', b'somatic']",18,'Avoidant Personality Disorder',"[groups, behavior]"
+4,"[b'behaviors', b'personality', b'personality', b'consider', b'disorder', b""'antisocial""]",18,'Dependent Personality Disorder',"[factors, it, emphasis, societies]"
+4,"[b'behaviors', b'personality', b'personality', b'consider', b'disorder', b""'antisocial""]",18,'Obsessive-Compulsive Personality Disorder',"[clinician, that, cultures]"
+0,"[b'sexual', b'desirable', b'men', b'differences', b'women', b'al']",19,'Fetishistic Disorder',[Knowledge]

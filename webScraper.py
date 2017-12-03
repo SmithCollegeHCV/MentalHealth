@@ -25,6 +25,13 @@ def cleanText(tag):
 
         return codeList
 
+def codeCheck(criteria):
+    existence = criteria.findAll("span", {"class": "ICD10Code"})
+    if existence == None:
+        returnFalse
+    else:
+        returnTrue
+
 def parse(soup, chapter, file):
     tagList = soup.findAll("div", {"class":"APP-CultureRelatedDiagnosticIssues"})
 
